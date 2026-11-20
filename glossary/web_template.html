@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentic AI 용어집</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#1b2430;--mute:#667085;--line:#e2e6ec;--pri:#2a6f97;--pri2:#e6f0f6;--star:#f2a33a;--bad:#d9534f;--good:#2e9e6b;
+ --c1:#7a8b99;--c2:#2a6f97;--c3:#5b8def;--c4:#14213d;--c5:#d9534f;--c6:#2e9e6b}
+@media (prefers-color-scheme:dark){:root{--bg:#10151c;--card:#18202a;--ink:#e8ecf1;--mute:#98a2b3;--line:#2a3441;--pri:#6fb3dc;--pri2:#1b2c3a;--c4:#4a6a9a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:16px 24px;position:sticky;top:0;z-index:5}
+.top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:19px;margin:0}
+.ver{color:var(--mute);font-size:12px}
+.sp{flex:1}
+input[type=search]{padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;width:240px;max-width:100%}
+.tabs{display:flex;gap:6px}
+.tabs button,.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:99px;font:inherit;font-size:13px;cursor:pointer}
+.tabs button.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.chip.on{background:var(--pri2);border-color:var(--pri);color:var(--pri);font-weight:600}
+.lbl{font-size:12px;color:var(--mute);margin:0 4px 0 8px}
+main{padding:20px 24px 48px;max-width:1280px;margin:0 auto}
+.motto{background:var(--pri2);border-radius:10px;padding:10px 16px;font-size:14px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;border-top:4px solid var(--cc);text-align:left;font:inherit;color:inherit}
+.term:hover{box-shadow:0 2px 10px #0002}
+.term h3{margin:0;font-size:17px}
+.term .en{color:var(--mute);font-size:12px}
+.term p{margin:8px 0 0;font-size:13.5px}
+.meta{display:flex;gap:6px;align-items:center;margin-top:8px;font-size:12px;color:var(--mute)}
+.star{color:var(--star);font-weight:700}
+.rb{display:inline-block;width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px;font-size:11px;font-weight:700;border:1px solid var(--line)}
+.rb.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.empty{color:var(--mute);padding:40px;text-align:center}
+dialog{border:0;border-radius:14px;padding:0;max-width:720px;width:calc(100% - 32px);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:#0007}
+.dhead{background:var(--cc);color:#fff;padding:20px 24px}
+.dhead h2{margin:4px 0 0;font-size:26px}
+.dbody{padding:18px 24px 22px}
+.def{font-size:17px;font-weight:600;margin:0 0 14px}
+.box{background:var(--bg);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.box b{display:block;font-size:12px;color:var(--pri);margin-bottom:2px}
+.box.myth b{color:var(--bad)}
+.rel a{color:var(--pri);cursor:pointer;margin-right:10px;text-decoration:underline}
+.close{float:right;background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+.quiz{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.qhead{display:flex;justify-content:space-between;color:var(--mute);font-size:13px;margin-bottom:10px;gap:8px;flex-wrap:wrap}
+.q{font-size:18px;font-weight:600;margin:6px 0 16px}
+.opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:12px 14px;border-radius:10px;margin-bottom:8px;font:inherit;cursor:pointer}
+.opt.ok{border-color:var(--good);background:#2e9e6b22}
+.opt.no{border-color:var(--bad);background:#d9534f22}
+.fb{margin-top:10px;font-size:14px}
+.go{background:var(--pri);color:#fff;border:0;padding:10px 18px;border-radius:8px;font:inherit;font-weight:600;cursor:pointer}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:13.5px}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--pri2)}
+.chrow td{background:var(--cc);color:#fff;font-weight:700}
+@media print{header,.motto,#quizView{display:none!important}#tableView{display:block!important}#cardView{display:none!important}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <h1 id="title"></h1><span class="ver" id="ver"></span>
+  <div class="sp"></div>
+  <input type="search" id="q" placeholder="용어·정의 검색 (예: 승인, 인젝션)" aria-label="검색">
+  <div class="tabs" role="tablist">
+   <button data-tab="cardView" class="on">카드</button><button data-tab="quizView">퀴즈</button><button data-tab="tableView">표·인쇄</button>
+  </div>
+ </div>
+ <div class="filters" id="filters"></div>
+</header>
+<main>
+ <div class="motto">에이전트 = <b>목표 + 도구 + 루프 + 승인</b> · 읽기는 맡기고, 쓰기는 승인한다 · 모델은 제안하고, 하니스가 결정한다</div>
+ <section id="cardView"><div class="grid" id="grid"></div></section>
+ <section id="quizView" hidden></section>
+ <section id="tableView" hidden></section>
+</main>
+<dialog id="dlg"></dialog>
+<script>
+const D=/*TERMS_JSON*/null;
+const T=D.terms, byId=Object.fromEntries(T.map(t=>[t.id,t]));
+const st={q:"",ch:0,role:"",core:false,tab:"cardView"};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const cc=ch=>`var(--c${ch})`;
+$("title").textContent=D.title;$("ver").textContent="v"+D.version;
+
+function filters(){
+ const f=$("filters");
+ const chips=[`<span class="lbl">장</span>`,`<button class="chip ${st.ch===0?"on":""}" data-ch="0">전체</button>`]
+  .concat(D.chapters.map(c=>`<button class="chip ${st.ch===c.no?"on":""}" data-ch="${c.no}">${c.no}. ${esc(c.name)}</button>`))
+  .concat([`<span class="lbl">직무</span>`,`<button class="chip ${st.role===""?"on":""}" data-role="">전체</button>`])
+  .concat(Object.entries(D.roles).map(([k,v])=>`<button class="chip ${st.role===k?"on":""}" data-role="${k}" title="${esc(v)}">${k} ${esc(v)}</button>`))
+  .concat([`<button class="chip ${st.core?"on":""}" data-core="1">★ 필수만</button>`]);
+ f.innerHTML=chips.join("");
+ f.querySelectorAll("[data-ch]").forEach(b=>b.onclick=()=>{st.ch=+b.dataset.ch;render()});
+ f.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{st.role=b.dataset.role;render()});
+ f.querySelector("[data-core]").onclick=()=>{st.core=!st.core;render()};
+}
+function pool(){
+ const q=st.q.trim().toLowerCase();
+ return T.filter(t=>(!st.ch||t.ch===st.ch)&&(!st.role||t.roles.includes(st.role))&&(!st.core||t.core)&&
+  (!q||[t.ko,t.en,t.def,t.analogy,t.myth,t.example].join(" ").toLowerCase().includes(q)));
+}
+function roleBadges(t){return ["M","O","D"].map(r=>`<span class="rb ${t.roles.includes(r)?"on":""}" title="${esc(D.roles[r])}">${r}</span>`).join("")}
+function cards(){
+ const P=pool();
+ $("grid").innerHTML=P.length?P.map(t=>`<button class="term" style="--cc:${cc(t.ch)}" data-id="${t.id}">
+  <h3>${t.core?'<span class="star">★</span> ':""}${esc(t.ko)}</h3><div class="en">${esc(t.en)}</div>
+  <p>${esc(t.def)}</p><div class="meta">${t.ch}장 ${esc(D.chapters[t.ch-1].name)}<span class="sp"></span>${roleBadges(t)}</div></button>`).join("")
+  :`<div class="empty">조건에 맞는 용어가 없습니다.</div>`;
+ $("grid").querySelectorAll(".term").forEach(b=>b.onclick=()=>open(b.dataset.id));
+}
+function open(id){
+ const t=byId[id],d=$("dlg");
+ d.style.setProperty("--cc",cc(t.ch));
+ d.innerHTML=`<div class="dhead"><button class="close" aria-label="닫기">×</button><div>${t.ch}장 ${esc(D.chapters[t.ch-1].name)} ${t.core?"· ★ 필수":""}</div>
+  <h2>${esc(t.ko)}</h2><div>${esc(t.en)}</div></div><div class="dbody">
+  <p class="def">${esc(t.def)}</p>
+  <div class="box"><b>유지보수 비유</b>${esc(t.analogy)}</div>
+  <div class="box"><b>교육에서 본 장면</b>${esc(t.scene)}</div>
+  <div class="box myth"><b>흔한 오해</b>${esc(t.myth)}</div>
+  <div class="box"><b>쓰는 예문</b>${esc(t.example)}</div>
+  <div class="rel"><b>관련 용어 </b>${t.related.map(r=>`<a data-id="${r}">${esc(byId[r].ko)}</a>`).join("")}</div>
+  <div class="meta" style="margin-top:12px">꼭 알아야 할 직무 ${roleBadges(t)}</div></div>`;
+ d.querySelector(".close").onclick=()=>d.close();
+ d.querySelectorAll(".rel a").forEach(a=>a.onclick=()=>open(a.dataset.id));
+ if(!d.open)d.showModal();
+}
+// ---- 퀴즈 ----
+const qz={mode:"def2term",n:0,score:0,cur:null,answered:false,asked:[]};
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function nextQ(){
+ const P=pool();
+ if(P.length<1){$("quizView").innerHTML=`<div class="quiz empty">필터 조건에 맞는 용어가 없습니다.</div>`;return}
+ let cand=P.filter(t=>!qz.asked.includes(t.id));if(!cand.length){qz.asked=[];cand=P}
+ const ans=cand[Math.floor(Math.random()*cand.length)];qz.asked.push(ans.id);
+ // 오답은 같은 장 우선, 부족하면 전체에서
+ const same=shuffle(T.filter(t=>t.id!==ans.id&&t.ch===ans.ch)),other=shuffle(T.filter(t=>t.id!==ans.id&&t.ch!==ans.ch));
+ const opts=shuffle([ans,...same.concat(other).slice(0,3)]);
+ qz.cur={ans,opts};qz.answered=false;drawQ();
+}
+function drawQ(){
+ const {ans,opts}=qz.cur,m=qz.mode==="def2term";
+ $("quizView").innerHTML=`<div class="quiz">
+  <div class="qhead"><span>${m?"정의를 보고 용어 고르기":"용어를 보고 정의 고르기"} · 출제 범위 ${pool().length}개</span>
+   <span>점수 ${qz.score} / ${qz.n} <button class="chip" id="qmode">${m?"거꾸로 풀기":"정의→용어로"}</button> <button class="chip" id="qreset">처음부터</button></span></div>
+  <div class="q">${m?esc(ans.def):esc(ans.ko)+" <span style='color:var(--mute);font-size:14px'>("+esc(ans.en)+")</span>"}</div>
+  ${opts.map((o,i)=>`<button class="opt" data-i="${i}">${m?esc(o.ko):esc(o.def)}</button>`).join("")}
+  <div class="fb" id="fb"></div></div>`;
+ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.i));
+ $("qmode").onclick=()=>{qz.mode=m?"term2def":"def2term";nextQ()};
+ $("qreset").onclick=()=>{qz.n=0;qz.score=0;qz.asked=[];nextQ()};
+}
+function answer(i){
+ if(qz.answered)return;qz.answered=true;qz.n++;
+ const {ans,opts}=qz.cur,ok=opts[i].id===ans.id;if(ok)qz.score++;
+ document.querySelectorAll(".opt").forEach((b,k)=>{if(opts[k].id===ans.id)b.classList.add("ok");else if(k===i)b.classList.add("no")});
+ $("fb").innerHTML=`${ok?"✅ 정답":"❌ 오답 — 정답은 <b>"+esc(ans.ko)+"</b>"}<div class="box myth" style="margin-top:8px"><b>흔한 오해</b>${esc(ans.myth)}</div>
+  <button class="go" id="qnext">다음 문제</button> <button class="chip" id="qcard">카드 보기</button>`;
+ $("qnext").onclick=nextQ;$("qcard").onclick=()=>open(ans.id);
+ document.querySelector(".qhead span:last-child").firstChild.textContent=`점수 ${qz.score} / ${qz.n} `;
+}
+// ---- 표 ----
+function table(){
+ const P=pool();let h=`<table><tr><th style="width:24%">용어</th><th>정의</th><th style="width:28%">쓰는 예문</th></tr>`;
+ D.chapters.forEach(c=>{const rows=P.filter(t=>t.ch===c.no);if(!rows.length)return;
+  h+=`<tr class="chrow" style="--cc:${cc(c.no)}"><td colspan="3">${c.no}장 ${esc(c.name)}</td></tr>`+
+   rows.map(t=>`<tr><td><b>${t.core?"★ ":""}${esc(t.ko)}</b><br><span class="en" style="color:var(--mute)">${esc(t.en)}</span></td><td>${esc(t.def)}</td><td>${esc(t.example)}</td></tr>`).join("")});
+ $("tableView").innerHTML=h+`</table><p style="color:var(--mute);font-size:13px">인쇄하면 이 표가 출력됩니다 (현재 필터 적용). ★ 전 직무 필수</p>`;
+}
+function render(){filters();cards();table();if(st.tab==="quizView")nextQ()}
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{st.tab=b.dataset.tab;
+ document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
+ ["cardView","quizView","tableView"].forEach(v=>$(v).hidden=v!==st.tab);if(st.tab==="quizView")nextQ()});
+$("q").oninput=e=>{st.q=e.target.value;render()};
+render();
+</script>
+</body>
+</html>

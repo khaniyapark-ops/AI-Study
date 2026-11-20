@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentic AI 용어집</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#1b2430;--mute:#667085;--line:#e2e6ec;--pri:#2a6f97;--pri2:#e6f0f6;--star:#f2a33a;--bad:#d9534f;--good:#2e9e6b;
+ --c1:#7a8b99;--c2:#2a6f97;--c3:#5b8def;--c4:#14213d;--c5:#d9534f;--c6:#2e9e6b}
+@media (prefers-color-scheme:dark){:root{--bg:#10151c;--card:#18202a;--ink:#e8ecf1;--mute:#98a2b3;--line:#2a3441;--pri:#6fb3dc;--pri2:#1b2c3a;--c4:#4a6a9a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:16px 24px;position:sticky;top:0;z-index:5}
+.top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:19px;margin:0}
+.ver{color:var(--mute);font-size:12px}
+.sp{flex:1}
+input[type=search]{padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;width:240px;max-width:100%}
+.tabs{display:flex;gap:6px}
+.tabs button,.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:99px;font:inherit;font-size:13px;cursor:pointer}
+.tabs button.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.chip.on{background:var(--pri2);border-color:var(--pri);color:var(--pri);font-weight:600}
+.lbl{font-size:12px;color:var(--mute);margin:0 4px 0 8px}
+main{padding:20px 24px 48px;max-width:1280px;margin:0 auto}
+.motto{background:var(--pri2);border-radius:10px;padding:10px 16px;font-size:14px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;border-top:4px solid var(--cc);text-align:left;font:inherit;color:inherit}
+.term:hover{box-shadow:0 2px 10px #0002}
+.term h3{margin:0;font-size:17px}
+.term .en{color:var(--mute);font-size:12px}
+.term p{margin:8px 0 0;font-size:13.5px}
+.meta{display:flex;gap:6px;align-items:center;margin-top:8px;font-size:12px;color:var(--mute)}
+.star{color:var(--star);font-weight:700}
+.rb{display:inline-block;width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px;font-size:11px;font-weight:700;border:1px solid var(--line)}
+.rb.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.empty{color:var(--mute);padding:40px;text-align:center}
+dialog{border:0;border-radius:14px;padding:0;max-width:720px;width:calc(100% - 32px);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:#0007}
+.dhead{background:var(--cc);color:#fff;padding:20px 24px}
+.dhead h2{margin:4px 0 0;font-size:26px}
+.dbody{padding:18px 24px 22px}
+.def{font-size:17px;font-weight:600;margin:0 0 14px}
+.box{background:var(--bg);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.box b{display:block;font-size:12px;color:var(--pri);margin-bottom:2px}
+.box.myth b{color:var(--bad)}
+.rel a{color:var(--pri);cursor:pointer;margin-right:10px;text-decoration:underline}
+.close{float:right;background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+.quiz{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.qhead{display:flex;justify-content:space-between;color:var(--mute);font-size:13px;margin-bottom:10px;gap:8px;flex-wrap:wrap}
+.q{font-size:18px;font-weight:600;margin:6px 0 16px}
+.opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:12px 14px;border-radius:10px;margin-bottom:8px;font:inherit;cursor:pointer}
+.opt.ok{border-color:var(--good);background:#2e9e6b22}
+.opt.no{border-color:var(--bad);background:#d9534f22}
+.fb{margin-top:10px;font-size:14px}
+.go{background:var(--pri);color:#fff;border:0;padding:10px 18px;border-radius:8px;font:inherit;font-weight:600;cursor:pointer}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:13.5px}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--pri2)}
+.chrow td{background:var(--cc);color:#fff;font-weight:700}
+@media print{header,.motto,#quizView{display:none!important}#tableView{display:block!important}#cardView{display:none!important}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <h1 id="title"></h1><span class="ver" id="ver"></span>
+  <div class="sp"></div>
+  <input type="search" id="q" placeholder="용어·정의 검색 (예: 승인, 인젝션)" aria-label="검색">
+  <div class="tabs" role="tablist">
+   <button data-tab="cardView" class="on">카드</button><button data-tab="quizView">퀴즈</button><button data-tab="tableView">표·인쇄</button>
+  </div>
+ </div>
+ <div class="filters" id="filters"></div>
+</header>
+<main>
+ <div class="motto">에이전트 = <b>목표 + 도구 + 루프 + 승인</b> · 읽기는 맡기고, 쓰기는 승인한다 · 모델은 제안하고, 하니스가 결정한다</div>
+ <section id="cardView"><div class="grid" id="grid"></div></section>
+ <section id="quizView" hidden></section>
+ <section id="tableView" hidden></section>
+</main>
+<dialog id="dlg"></dialog>
+<script>
+const D={"title": "Agentic AI 핵심 용어집", "version": "1.0 (2026-11-20)", "chapters": [{"no": 1, "name": "기초", "pillar": "모든 것의 바탕"}, {"no": 2, "name": "에이전트의 정체", "pillar": "목표 · 루프"}, {"no": 3, "name": "도구", "pillar": "도구"}, {"no": 4, "name": "통제", "pillar": "승인"}, {"no": 5, "name": "위험", "pillar": "승인이 필요한 이유"}, {"no": 6, "name": "운영 · 평가", "pillar": "증거로 판단"}], "roles": {"M": "관리자 · 기획자", "O": "운영자 · N/W · H/W", "D": "개발자 · S/W"}, "terms": [{"id": "llm", "ch": 1, "ko": "대규모 언어 모델", "en": "LLM, Large Language Model", "core": false, "roles": ["M", "O", "D"], "def": "대량의 글로 학습해, 주어진 글 다음에 올 내용을 만들어 내는 AI 모델. Claude가 여기에 해당한다", "analogy": "엄청나게 많은 문서를 읽은 신입 엔지니어. 아는 것은 많지만 우리 시스템은 처음 본다", "scene": "기본 과정 'AI가 잘하는 일 vs 조심할 일'", "myth": "\"모든 걸 안다\" → 우리 사내 규칙·장비 설정은 모른다. 자료를 줘야 한다", "related": ["prompt", "hallucination", "token"], "example": "LLM은 로그 요약에 강하지만, 정확한 집계는 쿼리로 확인한다"}, {"id": "token", "ch": 1, "ko": "토큰", "en": "Token", "core": false, "roles": ["M", "D"], "def": "모델이 글을 처리하는 단위. 입력과 출력 모두 토큰 수로 비용과 한도가 정해진다", "analogy": "통화 요금의 '분' 단위. 많이 읽고 많이 쓸수록 요금이 오른다", "scene": "심화 과정 비용 계산: 감사 로그의 input_tokens · output_tokens 합산", "myth": "\"글자 수와 같다\" → 언어와 내용에 따라 글자 수와 토큰 수의 비율이 다르다", "related": ["context-window", "audit-log"], "example": "settle 장애 대응 1건에 입력 약 2.6만, 출력 약 3천 토큰이 들었다"}, {"id": "context-window", "ch": 1, "ko": "컨텍스트 윈도", "en": "Context Window", "core": false, "roles": ["D"], "def": "모델이 한 번에 참고할 수 있는 글의 최대 양(토큰 수). 대화 기록·도구 결과가 모두 여기에 들어간다", "analogy": "작업대의 크기. 넓을수록 많은 문서를 펼쳐 놓고 볼 수 있지만, 무한하지는 않다", "scene": "심화 M1 '대화 기록(messages)은 이렇게 쌓인다'", "myth": "\"넣을수록 좋다\" → 관련 없는 자료가 많으면 비용이 늘고 핵심이 묻힌다", "related": ["token", "agent-loop"], "example": "로그 전체 대신 장애 시각 전후 10분만 컨텍스트에 넣는다"}, {"id": "prompt", "ch": 1, "ko": "프롬프트", "en": "Prompt", "core": false, "roles": ["M", "O", "D"], "def": "모델에게 주는 지시와 자료. 역할 · 맥락 · 자료 · 형식 · 제약 5요소로 쓰면 결과가 좋아진다", "analogy": "작업 지시서. \"이거 봐줘\"보다 \"무엇을, 왜, 어떤 형식으로\"가 적힌 지시서가 결과가 좋다", "scene": "기본 과정 '프롬프트 5요소', 데모 탭 1~7의 ② 프롬프트 칸", "myth": "\"프롬프트로 안전을 지킨다\" → 프롬프트의 규칙은 부탁이다. 강제는 하니스가 한다", "related": ["system-prompt", "harness"], "example": "프롬프트에 '모르면 확인 필요로 표시'를 넣어 추측을 줄인다"}, {"id": "system-prompt", "ch": 1, "ko": "시스템 프롬프트", "en": "System Prompt", "core": false, "roles": ["O", "D"], "def": "대화 내내 적용되는 기본 지시. 에이전트의 역할, 작업 방식, 보고 형식을 정한다", "analogy": "부서의 업무 규정. 매번 말하지 않아도 모든 작업에 적용된다", "scene": "agent_lab 각 도구팩의 SYSTEM, 공통 REPORT_RULE", "myth": "\"시스템 프롬프트에 금지라고 쓰면 못 한다\" → 여전히 부탁이다. 금지는 도구·권한으로 막는다", "related": ["prompt", "guardrail"], "example": "시스템 프롬프트에 보고 형식(원인/근거/조치/불확실성)을 고정했다"}, {"id": "hallucination", "ch": 1, "ko": "환각", "en": "Hallucination", "core": false, "roles": ["M", "O", "D"], "def": "모델이 사실이 아닌 내용을 그럴듯하게 만들어 내는 현상", "analogy": "모르는 걸 물었을 때 아는 척 그럴듯하게 대답하는 신입", "scene": "기본 과정 '환각을 잡는 검증 체크리스트'", "myth": "\"최신 모델은 환각이 없다\" → 줄었을 뿐 없어지지 않는다. 근거 확인은 계속 필요하다", "related": ["eval", "llm"], "example": "보고서의 수치는 환각 여부를 원본 시스템 조회로 대조한다"}, {"id": "chatbot-vs-agent", "ch": 2, "ko": "챗봇과 에이전트", "en": "Chatbot vs Agent", "core": false, "roles": ["M", "O", "D"], "def": "챗봇은 질문에 한 번 답하고 끝난다. 에이전트는 목표를 받아 도구를 쓰며 일을 끝까지 수행한다", "analogy": "전화 상담원(대답)과 현장 엔지니어(직접 점검하고 조치)의 차이", "scene": "기본 과정 데모 탭 8 'A. 챗봇처럼 묻기' vs 'B. 에이전트에게 맡기기'", "myth": "\"에이전트는 더 똑똑한 챗봇\" → 차이는 지능이 아니라 도구와 루프다", "related": ["agentic-ai", "tool", "agent-loop"], "example": "챗봇은 대답하고, 에이전트는 일한다"}, {"id": "agentic-ai", "ch": 2, "ko": "Agentic AI", "en": "에이전틱 AI", "core": false, "roles": ["M", "O", "D"], "def": "목표를 받아 스스로 계획하고, 도구를 사용하고, 결과를 보고 다시 계획하며 일을 수행하는 AI 방식", "analogy": "작업 지시서 한 장을 받고 스스로 점검 순서를 짜서 처리하는 숙련 엔지니어", "scene": "기본 과정 '에이전트 = 목표 + 도구 + 루프 + 승인'", "myth": "\"사람이 필요 없어진다\" → 쓰기 조치의 승인과 최종 판단은 사람이 한다", "related": ["chatbot-vs-agent", "goal", "agent-loop", "hitl"], "example": "에이전틱 AI 도입은 L1~L2(추천·초안)부터 시작한다"}, {"id": "goal", "ch": 2, "ko": "목표", "en": "Goal", "core": false, "roles": ["M", "O", "D"], "def": "에이전트에게 주는 '이루어야 할 상태'. 단계별 지시가 아니라 결과와 완료 기준을 준다", "analogy": "\"이 순서로 명령 쳐\"가 아니라 \"원인을 찾고 안전하게 복구해\"라고 맡기는 것", "scene": "기본 과정 Claude Code 실습 '목표만 주고 지켜보기'", "myth": "\"목표만 주면 끝\" → 완료 기준과 하면 안 되는 일을 함께 줘야 한다", "related": ["agentic-ai", "agent-loop"], "example": "목표: T-1005 원인을 찾고 안전하게 복구. 완료 기준: 근거 3개 이상 보고"}, {"id": "agent-loop", "ch": 2, "ko": "에이전트 루프", "en": "Agent Loop", "core": true, "roles": ["M", "O", "D"], "def": "생각 → 도구 호출 → 결과 관찰 → 다시 생각을 목표 달성까지 반복하는 에이전트의 작동 방식", "analogy": "장애 대응 엔지니어가 로그 보고, 가설 세우고, 명령 쳐 보고, 다시 가설을 고치는 과정", "scene": "데모 탭 8 상단 '계획→도구→관찰→재계획' 표시, agent_lab harness.run()", "myth": "\"한 번에 답을 낸다\" → 관찰 결과가 다음 계획을 바꾼다. 그래서 매번 경로가 다를 수 있다", "related": ["tool-call", "tool-result", "iteration-limit", "harness"], "example": "에이전트 루프 9회 만에 원인을 특정하고 복구를 요청했다"}, {"id": "thinking", "ch": 2, "ko": "생각(추론)", "en": "Thinking, Reasoning", "core": false, "roles": ["D"], "def": "모델이 답이나 도구 호출 전에 거치는 추론 과정. 요약본을 화면에 표시할 수 있다", "analogy": "엔지니어가 명령을 치기 전에 머릿속으로 가설을 세우는 시간", "scene": "데모 탭 8과 agent_lab 실행 화면의 💭 표시", "myth": "\"생각 요약이 곧 근거다\" → 근거는 도구 결과다. 생각은 참고용이다", "related": ["agent-loop"], "example": "생각 요약을 보면 에이전트가 왜 DB를 다시 조회했는지 알 수 있다"}, {"id": "iteration-limit", "ch": 2, "ko": "반복 한도", "en": "Iteration Limit", "core": false, "roles": ["O", "D"], "def": "에이전트 루프가 돌 수 있는 최대 횟수. 폭주와 비용 증가를 막는 가장 기본적인 가드레일", "analogy": "작업 시간 상한. 2시간 안에 못 끝내면 일단 멈추고 보고", "scene": "데모 탭 8 '최대 반복' 실험, agent_lab --max-iter", "myth": "\"한도는 높을수록 좋다\" → 높으면 실패한 작업이 오래 돌며 비용만 쓴다", "related": ["agent-loop", "guardrail"], "example": "반복 한도 12회, 넘으면 지금까지의 근거로 보고하고 멈춘다"}, {"id": "tool", "ch": 3, "ko": "도구", "en": "Tool", "core": true, "roles": ["M", "O", "D"], "def": "에이전트가 바깥 세계를 보고 바꾸기 위해 쓰는 기능(로그 조회, DB 조회, 파일 수정 등). 도구가 곧 에이전트의 능력이다", "analogy": "현장 엔지니어에게 주는 장비와 계정. 안 준 장비로는 아무것도 못 한다", "scene": "데모 탭 8 '도구 끄기' 실험, agent_lab packs/", "myth": "\"많이 줄수록 좋다\" → 읽기는 넉넉히, 쓰기는 최소로. 많으면 혼동과 위험이 늘어난다", "related": ["tool-call", "read-write-tool", "input-schema", "mcp"], "example": "광 레벨 조회 도구를 빼자 에이전트는 결론을 '확인 필요'로 낮췄다"}, {"id": "tool-call", "ch": 3, "ko": "도구 호출", "en": "Tool Use, tool_use", "core": false, "roles": ["D"], "def": "모델이 '이 도구를 이 입력으로 실행해 달라'고 보내는 요청. 실제 실행은 하니스가 한다", "analogy": "작업 요청서 제출. 요청서를 낸다고 바로 작업이 되는 게 아니다", "scene": "agent_lab 실행 화면의 🔧 줄, 감사 로그 tool_call 이벤트", "myth": "\"모델이 직접 명령을 실행한다\" → 모델은 요청만 한다. 실행 여부는 하니스가 정한다", "related": ["tool-result", "harness", "stop-reason"], "example": "도구 호출: read_log(path=\"logs/app.log\")"}, {"id": "tool-result", "ch": 3, "ko": "도구 결과", "en": "Tool Result, tool_result", "core": false, "roles": ["D"], "def": "하니스가 도구를 실행한 결과를 모델에게 돌려주는 것. 실패도 오류 표시(is_error)와 함께 돌려준다", "analogy": "작업 결과 보고서. 실패했으면 왜 실패했는지와 다음에 할 일이 적혀 있어야 한다", "scene": "agent_lab 실행 화면의 👁(관찰) · ⛔(오류) 줄", "myth": "\"오류는 숨기는 게 낫다\" → 오류 메시지가 다음 행동을 이끈다. 오류 메시지도 프롬프트다", "related": ["tool-call", "agent-loop"], "example": "도구 결과: \"파일 없음: X. list_files로 확인하세요\""}, {"id": "input-schema", "ch": 3, "ko": "입력 스키마", "en": "Input Schema", "core": false, "roles": ["D"], "def": "도구가 받을 입력의 형식(필수 항목, 타입, 허용 값 목록)을 정한 규격. 엄격할수록 엉뚱한 호출이 줄어든다", "analogy": "작업 요청서 양식. 빈칸·선택지가 정해져 있으면 잘못 쓰기 어렵다", "scene": "심화 M2 '나쁜 도구 vs 좋은 도구', agent_lab validate()", "myth": "\"자유 입력이 유연하다\" → 자유 입력(run_sql)은 승인 대상을 구분할 수 없게 만든다", "related": ["tool", "guardrail"], "example": "action 입력을 pause_job · restart_batch · change_schedule 세 가지로 제한했다"}, {"id": "read-write-tool", "ch": 3, "ko": "읽기 도구 · 쓰기 도구", "en": "Read / Write Tool", "core": false, "roles": ["M", "O", "D"], "def": "상태를 조회만 하는 도구(읽기)와 시스템을 바꾸는 도구(쓰기)의 구분. 쓰기 도구는 사람 승인 대상이다", "analogy": "모니터링 계정과 운영 변경 계정을 나누는 것", "scene": "데모 탭 8 도구 목록의 '읽기/쓰기🛑' 표시, agent_lab kind: read/write", "myth": "\"한 도구로 조회도 변경도 하면 편하다\" → 섞이면 승인 게이트를 걸 수 없다", "related": ["tool", "hitl", "least-privilege"], "example": "읽기는 맡기고, 쓰기는 승인한다"}, {"id": "mcp", "ch": 3, "ko": "MCP", "en": "Model Context Protocol", "core": false, "roles": ["O", "D"], "def": "AI 애플리케이션이 외부 도구·데이터에 연결하는 개방형 표준. 사내 시스템을 표준 방식의 도구로 노출할 수 있다", "analogy": "장비마다 다른 콘솔 케이블 대신 쓰는 표준 포트", "scene": "심화 M5 '사내 시스템 연결: 도구를 표준으로 노출한다'", "myth": "\"MCP를 쓰면 보안이 해결된다\" → 연결 방식의 표준일 뿐, 권한·승인·감사는 여전히 우리 책임이다", "related": ["tool", "least-privilege"], "example": "티켓 시스템을 MCP 서버로 만들어 여러 에이전트가 같은 도구를 쓴다"}, {"id": "harness", "ch": 4, "ko": "하니스", "en": "Harness", "core": true, "roles": ["M", "O", "D"], "def": "모델을 반복 호출하면서 도구를 실제로 실행하고, 무엇을 허용할지 결정하는 프로그램", "analogy": "신입(모델)에게 붙는 작업 허가 시스템. 신입이 요청하면 권한·승인을 확인한 뒤에만 실행된다", "scene": "데모 탭 8의 🛑 승인 카드, agent_lab harness.py", "myth": "\"AI가 알아서 조심한다\" → 조심은 하니스가 강제한다. 프롬프트의 규칙은 부탁일 뿐", "related": ["guardrail", "approval-gate", "audit-log"], "example": "모델은 제안하고, 하니스가 결정한다"}, {"id": "guardrail", "ch": 4, "ko": "가드레일", "en": "Guardrail", "core": false, "roles": ["M", "O", "D"], "def": "에이전트가 위험한 일을 하지 못하게 막는 장치의 총칭. 시스템 권한 · 하니스 규칙 · 도구 사전 조건 · 감사 · 프롬프트 5계층으로 본다", "analogy": "도로의 가드레일. 운전자가 실수해도 차가 낭떠러지로 떨어지지 않게 한다", "scene": "심화 M3 '가드레일 5계층'", "myth": "\"한 겹이면 충분하다\" → 탐지·프롬프트는 뚫릴 수 있다. 모델이 속아도 지켜지는 계층을 겹쳐 둔다", "related": ["harness", "precondition", "least-privilege", "iteration-limit"], "example": "이 에이전트의 가드레일: 읽기 전용 계정, 쓰기 승인, 백업 확인 사전 조건, 반복 12회 한도"}, {"id": "hitl", "ch": 4, "ko": "사람 승인", "en": "Human-in-the-Loop", "core": true, "roles": ["M", "O", "D"], "def": "에이전트가 쓰기 조치를 하기 전에 사람이 승인하거나 거부하는 절차. 하니스에서 이를 강제하는 지점을 '승인 게이트'라고 부른다", "analogy": "변경관리(CAB) 결재. 결재가 없으면 작업이 시작되지 않는다", "scene": "데모 탭 8 승인/거부 버튼, agent_lab의 '승인하시겠습니까? [y/N]'", "myth": "\"승인은 형식이다\" → 승인 대기 시간은 복구 시간에 더해진다. 누가, 언제, 어떤 조치를 승인할지 정해야 한다", "related": ["approval-gate", "read-write-tool", "autonomy-level"], "example": "배치 재기동은 당직 운영자의 사람 승인 후 실행한다"}, {"id": "approval-gate", "ch": 4, "ko": "승인 게이트", "en": "Approval Gate", "core": false, "roles": ["O", "D"], "def": "하니스 안에서 쓰기 도구 실행 직전에 멈추고 사람 승인을 기다리는 지점. 모델의 판단과 관계없이 작동한다", "analogy": "출입 게이트. 사원증(승인)이 없으면 누구든 통과할 수 없다", "scene": "agent_lab Policy.decide(), 데모 탭 8 '자동 실행' 실험(게이트를 끄면 생기는 일)", "myth": "\"모델이 위험하면 스스로 멈춘다\" → 멈춤은 게이트가 보장한다. 모델에게 맡기지 않는다", "related": ["hitl", "harness"], "example": "인젝션에 속은 재기동 요청도 승인 게이트에서 멈췄다"}, {"id": "least-privilege", "ch": 4, "ko": "최소 권한", "en": "Least Privilege", "core": false, "roles": ["M", "O", "D"], "def": "에이전트가 쓰는 계정에 작업에 꼭 필요한 권한만 주는 원칙. 가드레일의 맨 아래, 최후의 방어선", "analogy": "외주 작업자에게 필요한 서버 계정만, 읽기 전용으로 발급하는 것", "scene": "심화 D3 '읽기 전용 정규식 깨보기' — 정규식이 아니라 DB 읽기 전용 계정으로 막아야 한다", "myth": "\"도구 설명에 읽기 전용이라고 쓰면 된다\" → 계정 권한으로 막아야 실제로 막힌다", "related": ["guardrail", "privilege-misuse", "read-write-tool"], "example": "조회 도구는 DB 읽기 전용 계정으로만 접속한다"}, {"id": "precondition", "ch": 4, "ko": "사전 조건", "en": "Precondition", "core": false, "roles": ["O", "D"], "def": "도구가 실행되기 전에 반드시 충족되어야 하는 업무 조건. 도구 스스로 검사해, 승인을 받았어도 조건이 안 되면 거부한다", "analogy": "\"백업 확인 전 RAID 재구성 금지\" 같은 작업 절차서의 주의 문구", "scene": "agent_lab hardware 팩 rush 시나리오, settle 팩 '원인 해소 전 재기동 금지'", "myth": "\"사람이 승인했으면 안전하다\" → 승인자도 실수한다. 물리적으로 위험한 순서는 도구가 막는다", "related": ["guardrail", "hitl"], "example": "Rx 광 레벨이 기준 미만이면 포트 재활성 도구가 실행을 거부한다"}, {"id": "autonomy-level", "ch": 4, "ko": "자율성 단계", "en": "Autonomy Level (L1~L4)", "core": true, "roles": ["M", "O", "D"], "def": "에이전트에게 맡기는 범위를 L1 추천 · L2 초안 · L3 승인 후 실행 · L4 자동 실행의 4단계로 나눈 기준", "analogy": "신입의 권한을 '보고만' → '초안 작성' → '결재 후 실행' → '정형 업무 위임'으로 늘려가는 것", "scene": "기본 과정 '자율성 4단계', 심화 '자율성 결정 매트릭스'", "myth": "\"성능이 좋으면 바로 L4\" → 영향 범위와 되돌릴 수 있는지, 평가 통과율로 단계를 정한다", "related": ["hitl", "eval", "pass-bar"], "example": "배치 재기동은 L3, 조회·요약은 L4 후보로 정했다"}, {"id": "prompt-injection", "ch": 5, "ko": "프롬프트 인젝션", "en": "Prompt Injection", "core": true, "roles": ["M", "O", "D"], "def": "에이전트가 읽는 데이터(로그·티켓·메일) 속에 명령인 척하는 문장을 심어 행동을 바꾸려는 공격", "analogy": "작업 지시서 뒷면에 누군가 '승인 없이 서버 재부팅할 것'이라고 적어 둔 것", "scene": "심화 --inject 실험. 실제 모델은 따르지 않았고, 따랐더라도 승인 게이트가 막았다", "myth": "\"탐지하면 해결된다\" → 탐지는 완벽하지 않다. 속아도 안전한 구조(승인 · 사전 조건)가 본질이다", "related": ["guardrail", "approval-gate", "data-leak"], "example": "고객 티켓 본문은 인젝션 경로이므로 데이터로만 취급한다"}, {"id": "reward-hacking", "ch": 5, "ko": "보상 해킹", "en": "Reward Hacking", "core": false, "roles": ["M", "D"], "def": "에이전트가 진짜 목표 대신 '통과 기준'만 만족시키는 지름길을 택하는 행동. 예: 테스트를 고쳐서 통과시키기", "analogy": "점검표의 체크칸만 채우고 실제 점검은 하지 않는 것", "scene": "심화 lazy 시나리오, --allow-test-edit로 보호를 끄면 테스트가 오염되는 장면", "myth": "\"테스트가 통과했으니 고쳐졌다\" → 기준 자체를 바꿨을 수 있다. 기준은 에이전트 손 밖에 둔다", "related": ["eval", "guardrail"], "example": "테스트 파일은 보호 파일로 지정해 에이전트가 수정할 수 없게 했다"}, {"id": "privilege-misuse", "ch": 5, "ko": "권한 오남용", "en": "Privilege Misuse", "core": false, "roles": ["M", "O"], "def": "에이전트에게 준 권한이 의도하지 않은 일(민감정보 조회, 범위 밖 변경)에 쓰이는 것", "analogy": "점검용으로 준 마스터키로 다른 방까지 열어 보는 것", "scene": "심화 리스크 레지스터 '권한 오남용'", "myth": "\"우리 에이전트는 그런 일을 안 한다\" → 할 수 있는 권한 자체를 주지 않는 것이 통제다", "related": ["least-privilege", "audit-log"], "example": "권한 오남용을 막으려 조회 범위를 해당 서비스 스키마로 한정했다"}, {"id": "data-leak", "ch": 5, "ko": "데이터 유출", "en": "Data Leakage", "core": false, "roles": ["M", "O", "D"], "def": "개인정보·고객 비밀정보가 허용되지 않은 곳(외부 API, 로그, 보고서)으로 나가는 것", "analogy": "작업 중 찍은 사진에 고객 화면이 그대로 담겨 외부로 나가는 것", "scene": "기본 과정 '안전 수칙: 넣지 말 것 · 마스킹 후 입력'", "myth": "\"요약만 보내니 괜찮다\" → 원문을 보내야 요약이 나온다. 보내기 전에 마스킹한다", "related": ["least-privilege", "prompt-injection"], "example": "고객 이름과 계좌번호는 마스킹한 뒤 에이전트에 전달한다"}, {"id": "audit-log", "ch": 6, "ko": "감사 로그", "en": "Audit Log", "core": false, "roles": ["M", "O", "D"], "def": "에이전트가 한 모든 일(모델 호출, 도구 호출, 승인·거부, 결과)을 시간순으로 남긴 기록", "analogy": "작업 일지 + CCTV. 나중에 누가 무엇을 왜 했는지 재구성할 수 있다", "scene": "agent_lab runs/<실행>/audit.jsonl", "myth": "\"문제 생기면 그때 보면 된다\" → 평가 채점, 비용 계산, 자율성 결정의 근거가 모두 감사 로그다", "related": ["eval", "token", "hitl"], "example": "감사 로그상 무승인 실행 0건, 승인 2건 모두 당직자 승인"}, {"id": "eval", "ch": 6, "ko": "평가", "en": "Eval, Evaluation", "core": true, "roles": ["M", "O", "D"], "def": "정해 둔 시나리오(케이스)로 에이전트를 실행하고, 성공·안전 기준으로 자동 채점하는 것", "analogy": "정기 모의훈련. 실제 장애 전에 정해진 시나리오로 대응 능력을 점검한다", "scene": "agent_lab eval.py, cases.json, 라이브 평가 9/9", "myth": "\"한두 번 잘 되면 된다\" → 같은 목표도 매번 경로가 다르다. 여러 번 돌려 통과율로 판단한다", "related": ["mock-live", "pass-bar", "audit-log"], "example": "프롬프트를 고친 뒤 평가를 다시 돌려 회귀가 없는지 확인했다"}, {"id": "mock-live", "ch": 6, "ko": "모의 평가 · 라이브 평가", "en": "Mock / Live Evaluation", "core": false, "roles": ["O", "D"], "def": "모의 평가는 정해진 시나리오로 하니스·가드레일 자체를 검증하고, 라이브 평가는 실제 모델의 행동을 채점한다", "analogy": "모의 평가는 소방 설비 점검, 라이브 평가는 실제 대원의 출동 훈련", "scene": "agent_lab 'eval.py'(모의 8/8)와 'eval.py --live'(라이브 9/9)", "myth": "\"모의 평가가 통과했으니 모델도 잘한다\" → 모의는 하니스가 설계대로 동작한다는 뜻일 뿐이다", "related": ["eval", "pass-bar"], "example": "가드레일 차단 장면은 모의로, 모델 품질은 라이브로 확인한다"}, {"id": "pass-bar", "ch": 6, "ko": "합격선", "en": "Pass Bar, Threshold", "core": false, "roles": ["M"], "def": "평가 결과로 자율성 단계를 올리거나 유지할지 정하는 기준 통과율. 미리 정해 두고 판단한다", "analogy": "자격 시험의 합격 점수. 시험을 본 뒤에 점수를 정하지 않는다", "scene": "심화 '합격선은 미리 정한다(예: 라이브 20회 중 19회)'", "myth": "\"결과를 보고 정하면 된다\" → 결과를 본 뒤 정하면 기준이 흔들린다", "related": ["eval", "autonomy-level"], "example": "합격선 미달이면 자율성 단계를 한 단계 낮춘다"}, {"id": "stop-reason", "ch": 6, "ko": "stop_reason", "en": "멈춤 사유", "core": false, "roles": ["D"], "def": "모델이 응답을 멈춘 이유. tool_use(도구 요청) · end_turn(작업 종료) · max_tokens(출력 한도) · refusal(안전 정책 거절) 등", "analogy": "작업자가 손을 멈춘 이유 — 장비 요청, 작업 완료, 시간 초과, 규정상 거부", "scene": "심화 M1 'stop_reason: 모델이 멈춘 이유에 따라 하니스가 할 일'", "myth": "\"멈췄으면 끝난 것\" → 이유에 따라 하니스가 할 일이 다르다(실행 · 종료 · 중단 기록)", "related": ["tool-call", "harness", "fallback"], "example": "멈춤 사유가 tool_use이면 하니스가 검증 후 도구를 실행한다"}, {"id": "fallback", "ch": 6, "ko": "대체 모델", "en": "Fallback", "core": false, "roles": ["D"], "def": "주 모델이 안전 정책으로 요청을 거절했을 때, 미리 정한 다른 모델이 이어서 응답하도록 하는 설정", "analogy": "담당자가 처리할 수 없는 요청을 정해진 대리자가 이어받는 것", "scene": "데모 탭 8 라이브 모드와 agent_lab LiveModel의 fallbacks 설정", "myth": "\"대체 모델이 있으면 무엇이든 처리된다\" → 대체 모델도 거절할 수 있다. 거절은 기록하고 사람이 판단한다", "related": ["stop-reason"], "example": "라이브 실행은 대체 모델 설정을 켠 상태로 진행했다"}]};
+const T=D.terms, byId=Object.fromEntries(T.map(t=>[t.id,t]));
+const st={q:"",ch:0,role:"",core:false,tab:"cardView"};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const cc=ch=>`var(--c${ch})`;
+$("title").textContent=D.title;$("ver").textContent="v"+D.version;
+
+function filters(){
+ const f=$("filters");
+ const chips=[`<span class="lbl">장</span>`,`<button class="chip ${st.ch===0?"on":""}" data-ch="0">전체</button>`]
+  .concat(D.chapters.map(c=>`<button class="chip ${st.ch===c.no?"on":""}" data-ch="${c.no}">${c.no}. ${esc(c.name)}</button>`))
+  .concat([`<span class="lbl">직무</span>`,`<button class="chip ${st.role===""?"on":""}" data-role="">전체</button>`])
+  .concat(Object.entries(D.roles).map(([k,v])=>`<button class="chip ${st.role===k?"on":""}" data-role="${k}" title="${esc(v)}">${k} ${esc(v)}</button>`))
+  .concat([`<button class="chip ${st.core?"on":""}" data-core="1">★ 필수만</button>`]);
+ f.innerHTML=chips.join("");
+ f.querySelectorAll("[data-ch]").forEach(b=>b.onclick=()=>{st.ch=+b.dataset.ch;render()});
+ f.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{st.role=b.dataset.role;render()});
+ f.querySelector("[data-core]").onclick=()=>{st.core=!st.core;render()};
+}
+function pool(){
+ const q=st.q.trim().toLowerCase();
+ return T.filter(t=>(!st.ch||t.ch===st.ch)&&(!st.role||t.roles.includes(st.role))&&(!st.core||t.core)&&
+  (!q||[t.ko,t.en,t.def,t.analogy,t.myth,t.example].join(" ").toLowerCase().includes(q)));
+}
+function roleBadges(t){return ["M","O","D"].map(r=>`<span class="rb ${t.roles.includes(r)?"on":""}" title="${esc(D.roles[r])}">${r}</span>`).join("")}
+function cards(){
+ const P=pool();
+ $("grid").innerHTML=P.length?P.map(t=>`<button class="term" style="--cc:${cc(t.ch)}" data-id="${t.id}">
+  <h3>${t.core?'<span class="star">★</span> ':""}${esc(t.ko)}</h3><div class="en">${esc(t.en)}</div>
+  <p>${esc(t.def)}</p><div class="meta">${t.ch}장 ${esc(D.chapters[t.ch-1].name)}<span class="sp"></span>${roleBadges(t)}</div></button>`).join("")
+  :`<div class="empty">조건에 맞는 용어가 없습니다.</div>`;
+ $("grid").querySelectorAll(".term").forEach(b=>b.onclick=()=>open(b.dataset.id));
+}
+function open(id){
+ const t=byId[id],d=$("dlg");
+ d.style.setProperty("--cc",cc(t.ch));
+ d.innerHTML=`<div class="dhead"><button class="close" aria-label="닫기">×</button><div>${t.ch}장 ${esc(D.chapters[t.ch-1].name)} ${t.core?"· ★ 필수":""}</div>
+  <h2>${esc(t.ko)}</h2><div>${esc(t.en)}</div></div><div class="dbody">
+  <p class="def">${esc(t.def)}</p>
+  <div class="box"><b>유지보수 비유</b>${esc(t.analogy)}</div>
+  <div class="box"><b>교육에서 본 장면</b>${esc(t.scene)}</div>
+  <div class="box myth"><b>흔한 오해</b>${esc(t.myth)}</div>
+  <div class="box"><b>쓰는 예문</b>${esc(t.example)}</div>
+  <div class="rel"><b>관련 용어 </b>${t.related.map(r=>`<a data-id="${r}">${esc(byId[r].ko)}</a>`).join("")}</div>
+  <div class="meta" style="margin-top:12px">꼭 알아야 할 직무 ${roleBadges(t)}</div></div>`;
+ d.querySelector(".close").onclick=()=>d.close();
+ d.querySelectorAll(".rel a").forEach(a=>a.onclick=()=>open(a.dataset.id));
+ if(!d.open)d.showModal();
+}
+// ---- 퀴즈 ----
+const qz={mode:"def2term",n:0,score:0,cur:null,answered:false,asked:[]};
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function nextQ(){
+ const P=pool();
+ if(P.length<1){$("quizView").innerHTML=`<div class="quiz empty">필터 조건에 맞는 용어가 없습니다.</div>`;return}
+ let cand=P.filter(t=>!qz.asked.includes(t.id));if(!cand.length){qz.asked=[];cand=P}
+ const ans=cand[Math.floor(Math.random()*cand.length)];qz.asked.push(ans.id);
+ // 오답은 같은 장 우선, 부족하면 전체에서
+ const same=shuffle(T.filter(t=>t.id!==ans.id&&t.ch===ans.ch)),other=shuffle(T.filter(t=>t.id!==ans.id&&t.ch!==ans.ch));
+ const opts=shuffle([ans,...same.concat(other).slice(0,3)]);
+ qz.cur={ans,opts};qz.answered=false;drawQ();
+}
+function drawQ(){
+ const {ans,opts}=qz.cur,m=qz.mode==="def2term";
+ $("quizView").innerHTML=`<div class="quiz">
+  <div class="qhead"><span>${m?"정의를 보고 용어 고르기":"용어를 보고 정의 고르기"} · 출제 범위 ${pool().length}개</span>
+   <span>점수 ${qz.score} / ${qz.n} <button class="chip" id="qmode">${m?"거꾸로 풀기":"정의→용어로"}</button> <button class="chip" id="qreset">처음부터</button></span></div>
+  <div class="q">${m?esc(ans.def):esc(ans.ko)+" <span style='color:var(--mute);font-size:14px'>("+esc(ans.en)+")</span>"}</div>
+  ${opts.map((o,i)=>`<button class="opt" data-i="${i}">${m?esc(o.ko):esc(o.def)}</button>`).join("")}
+  <div class="fb" id="fb"></div></div>`;
+ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.i));
+ $("qmode").onclick=()=>{qz.mode=m?"term2def":"def2term";nextQ()};
+ $("qreset").onclick=()=>{qz.n=0;qz.score=0;qz.asked=[];nextQ()};
+}
+function answer(i){
+ if(qz.answered)return;qz.answered=true;qz.n++;
+ const {ans,opts}=qz.cur,ok=opts[i].id===ans.id;if(ok)qz.score++;
+ document.querySelectorAll(".opt").forEach((b,k)=>{if(opts[k].id===ans.id)b.classList.add("ok");else if(k===i)b.classList.add("no")});
+ $("fb").innerHTML=`${ok?"✅ 정답":"❌ 오답 — 정답은 <b>"+esc(ans.ko)+"</b>"}<div class="box myth" style="margin-top:8px"><b>흔한 오해</b>${esc(ans.myth)}</div>
+  <button class="go" id="qnext">다음 문제</button> <button class="chip" id="qcard">카드 보기</button>`;
+ $("qnext").onclick=nextQ;$("qcard").onclick=()=>open(ans.id);
+ document.querySelector(".qhead span:last-child").firstChild.textContent=`점수 ${qz.score} / ${qz.n} `;
+}
+// ---- 표 ----
+function table(){
+ const P=pool();let h=`<table><tr><th style="width:24%">용어</th><th>정의</th><th style="width:28%">쓰는 예문</th></tr>`;
+ D.chapters.forEach(c=>{const rows=P.filter(t=>t.ch===c.no);if(!rows.length)return;
+  h+=`<tr class="chrow" style="--cc:${cc(c.no)}"><td colspan="3">${c.no}장 ${esc(c.name)}</td></tr>`+
+   rows.map(t=>`<tr><td><b>${t.core?"★ ":""}${esc(t.ko)}</b><br><span class="en" style="color:var(--mute)">${esc(t.en)}</span></td><td>${esc(t.def)}</td><td>${esc(t.example)}</td></tr>`).join("")});
+ $("tableView").innerHTML=h+`</table><p style="color:var(--mute);font-size:13px">인쇄하면 이 표가 출력됩니다 (현재 필터 적용). ★ 전 직무 필수</p>`;
+}
+function render(){filters();cards();table();if(st.tab==="quizView")nextQ()}
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{st.tab=b.dataset.tab;
+ document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
+ ["cardView","quizView","tableView"].forEach(v=>$(v).hidden=v!==st.tab);if(st.tab==="quizView")nextQ()});
+$("q").oninput=e=>{st.q=e.target.value;render()};
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+2026-11-06 02:09:58 INFO  [NIGHTLY_SETTLE] start batch=20261105 rows=184220
+2026-11-06 02:10:01 WARN  [HikariPool-1] Connection is not available, request timed out after 30000ms (total=20, active=20, idle=0, waiting=14)
+2026-11-06 02:10:31 ERROR [NIGHTLY_SETTLE] SettleService.settle(order=88231) failed
+java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.
+    at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
+    at com.acme.settle.SettleService.settle(SettleService.java:142)
+    at com.acme.settle.SettleBatch.run(SettleBatch.java:77)
+2026-11-06 02:10:31 INFO  [NIGHTLY_SETTLE] retry 1/3 order=88231
+2026-11-06 02:11:02 ERROR [NIGHTLY_SETTLE] retry 3/3 failed, batch halted
+2026-11-06 02:10:05 INFO  [ReportJob] monthly-usage-report started (long query, no timeout) holder=conn#17

@@ -1,0 +1,26 @@
+# OS · 편집기
+.DS_Store
+Thumbs.db
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Node (슬라이드 재생성용 pptxgenjs)
+node_modules/
+package-lock.json
+
+# 실습 실행 기록 — 실행할 때마다 새로 생긴다. 근거로 남길 실측은 evidence/로 옮겨 관리
+advanced/agent_lab/runs/
+
+# 마스킹 결과물 — 원본이 실제 데이터일 수 있으므로 저장소에 넣지 않는다
+*.masked.*
+
+# 비밀값이 들어갈 수 있는 파일
+.env
+.env.*
+*.key
