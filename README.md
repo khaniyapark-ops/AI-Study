@@ -3,7 +3,7 @@
 SI·IT 유지관리 사업의 7개 직무(관리자 · 기획자 · 운영자 · 개발자 · S/W · N/W · H/W 엔지니어)를 위한 **Agentic AI(에이전트형 AI) 교육 패키지**입니다.
 체험 중심의 기본 과정(6시간), 직접 만들고 통제하는 심화 과정(2일), 그리고 이를 받쳐 주는 발전 과정·용어집·보안 판단·환경 준비 자료로 구성됩니다.
 
-> **공개 페이지**: https://khaniyapark-ops.github.io/AI-Study/ — 실데모와 웹 용어집은 브라우저에서 바로 실행, 슬라이드는 내려받기
+> **공개 페이지**: https://khaniyapark-ops.github.io/AI-Study/ — 실데모와 웹 용어집은 브라우저에서 바로 실행, 슬라이드는 PDF로 바로 보기 (pptx 원본도 제공)
 
 > 하루 내내 반복하는 두 문장 — **챗봇은 대답하고, 에이전트는 일한다 · 읽기는 맡기고, 쓰기는 승인한다**
 > 심화 과정의 한 문장 — **모델은 제안하고, 하니스가 결정한다**
@@ -13,7 +13,7 @@ SI·IT 유지관리 사업의 7개 직무(관리자 · 기획자 · 운영자 ·
 | 경로 | 내용 | 주 대상 |
 |---|---|---|
 | [커리큘럼.md](커리큘럼.md) | 기본 과정 6시간 시간표, 직무별 목표, 강사 메모 | 강사 · PM |
-| [AI교육_유지관리.pptx](AI교육_유지관리.pptx) | 기본 과정 슬라이드 34장 (발표자 노트 포함) | 강사 |
+| [AI교육_유지관리.pdf](AI교육_유지관리.pdf) · [.pptx](AI교육_유지관리.pptx) | 기본 과정 슬라이드 34장 (PDF로 보기 · pptx는 발표자 노트 포함 편집용) | 강사 |
 | [실습키트_Agentic.md](실습키트_Agentic.md) | 언플러그드 게임 카드, 데모 실험 스크립트, Claude Code 관찰 기록지, 설계 캔버스, 회상 퀴즈 | 강사 · 수강생 |
 | [demo/index.html](demo/index.html) | 실데모 8종. 탭 8은 실제로 도는 **에이전트 실습실**. 브라우저로 열면 됨 (오프라인 재생 가능) | 전원 |
 | [sample-system/](sample-system/README.md) | 실습용 가상 정산 시스템 (티켓 · 장애 로그 · 버그 코드, 테스트 1건 실패가 시작 상태) | 전원 |
@@ -80,6 +80,7 @@ SI·IT 유지관리 사업의 7개 직무(관리자 · 기획자 · 운영자 ·
 
 | 자료 | 원본 | 명령 |
 |---|---|---|
+| 슬라이드 PDF | 각 `.pptx` | LibreOffice: `soffice --headless --convert-to pdf <파일>.pptx`, 또는 PowerPoint에서 "PDF로 내보내기". **pptx를 다시 만들면 PDF도 다시 변환** |
 | 슬라이드 4종 | `.slides_build.js`, `advanced/.slides_build_adv.js`, `evolution/.build_slides.js`, `security/.build_slides.js` (숨김 파일) | `npm install pptxgenjs` 후 `node <스크립트>` → 실행한 폴더에 .pptx 생성 |
 | 용어 카드집 · 요약표 | `glossary/terms.json` | `node glossary/.build_cards.js` |
 | 웹 용어집 | `glossary/terms.json` | `python3 glossary/build_web.py` |
