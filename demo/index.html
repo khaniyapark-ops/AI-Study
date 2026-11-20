@@ -13,6 +13,7 @@ header{padding:18px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap
 header h1{font-size:18px;margin:0}
 header .sp{flex:1}
 .mode{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--mute)}
+.keynote{flex-basis:100%;font-size:12px;color:var(--mute);margin-top:2px}
 .mode input{padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:230px}
 nav{display:flex;gap:6px;padding:12px 24px 0;flex-wrap:wrap}
 nav button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 14px;border-radius:8px 8px 0 0;cursor:pointer;font:inherit}
@@ -74,6 +75,7 @@ button.sub{background:transparent;border:1px solid var(--line);color:var(--ink);
   <div class="mode">라이브 모드: Anthropic API 키
     <input id="key" type="password" placeholder="sk-ant-... (비우면 시연 모드)" autocomplete="off">
   </div>
+  <div class="keynote">키 없이도 모든 데모가 <b>오프라인 재생</b>으로 동작합니다. 키를 넣으면 이 브라우저에서 <b>api.anthropic.com으로만</b> 직접 전송되며, 이 페이지는 키를 저장하거나 다른 곳으로 보내지 않습니다(새로고침하면 지워짐). 교육용 임시 키를 쓰고, 공용 PC에서는 입력하지 마세요.</div>
 </header>
 <nav id="nav"></nav>
 <main>

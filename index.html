@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentic AI 교육 자료</title>
+<meta name="description" content="SI·IT 유지관리 사업 7개 직무를 위한 Agentic AI(에이전트형 AI) 교육 자료 — 기본·심화 과정, 실데모, 실습 키트, 용어집, 보안 판단 가이드">
+<style>
+:root{--bg:#f6f7fa;--card:#fff;--ink:#1b2430;--mute:#5f6b7a;--line:#e2e6ec;--navy:#14213d;--pri:#2a6f97;--pri2:#e7f0f6;--amber:#f2a33a;--green:#2e9e6b;--red:#d9534f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f141b;--card:#18202a;--ink:#e8ecf1;--mute:#9aa5b4;--line:#2a3441;--navy:#0b1220;--pri:#6fb3dc;--pri2:#1a2b39}}
+:root[data-theme="dark"]{--bg:#0f141b;--card:#18202a;--ink:#e8ecf1;--mute:#9aa5b4;--line:#2a3441;--navy:#0b1220;--pri:#6fb3dc;--pri2:#1a2b39}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif}
+a{color:var(--pri)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.hero{background:var(--navy);color:#fff;padding:56px 0 44px}
+.hero .eyebrow{color:var(--amber);font-weight:600;margin:0 0 8px}
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.25;margin:0 0 14px}
+.hero p.lead{color:#d6deea;max-width:760px;margin:0 0 22px}
+.motto{display:grid;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.motto li{background:#ffffff14;border-left:0;border-radius:10px;padding:10px 14px;font-weight:600}
+.motto small{display:block;font-weight:400;color:#b9c4d4}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:700;background:var(--amber);color:#1b2430}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #ffffff55}
+section{padding:40px 0 8px}
+h2{font-size:24px;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 18px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;display:flex;flex-direction:column}
+.card h3{margin:0 0 4px;font-size:19px}
+.card .meta{font-size:13px;color:var(--mute);margin:0 0 10px}
+.card p{margin:0 0 12px;font-size:15px}
+.links{list-style:none;padding:0;margin:auto 0 0;display:grid;gap:6px}
+.links a{display:flex;gap:8px;align-items:baseline;text-decoration:none;font-size:15px}
+.links a:hover span.t{text-decoration:underline}
+.k{font-size:11px;font-weight:700;padding:1px 7px;border-radius:99px;white-space:nowrap}
+.k.run{background:#2e9e6b22;color:var(--green)}
+.k.dl{background:#f2a33a2b;color:#b06d0c}
+.k.read{background:var(--pri2);color:var(--pri)}
+.feature{border:2px solid var(--pri)}
+.steps{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.step b{display:block;color:var(--pri);font-size:13px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--pri2);font-size:14px}
+.ok{color:var(--green);font-weight:700}.warn{color:#b06d0c;font-weight:700}
+.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:15px}
+.note li{margin:4px 0}
+footer{color:var(--mute);font-size:14px;padding:36px 0 48px}
+.tablewrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <p class="eyebrow">SI · IT 유지관리 사업 교육 자료</p>
+  <h1>Agentic AI(에이전트형 AI)를<br>현장에서 쓰고, 만들고, 통제하기</h1>
+  <p class="lead">관리자 · 기획자 · 운영자 · 개발자 · S/W · N/W · H/W 엔지니어 7개 직무를 위한 교육 패키지입니다. 체험 중심의 기본 과정(6시간), 직접 만들고 통제하는 심화 과정(2일), 그리고 발전 과정 · 용어집 · 보안 판단 · 환경 준비 자료로 구성됩니다.</p>
+  <ul class="motto">
+   <li>챗봇은 대답하고, 에이전트는 일한다<small>에이전트 = 목표 + 도구 + 루프 + 승인</small></li>
+   <li>읽기는 맡기고, 쓰기는 승인한다<small>운영 변경은 프로그램이 멈추고 사람의 승인을 기다린다</small></li>
+  </ul>
+  <div class="btns">
+   <a class="btn" href="demo/index.html">실데모 바로 해보기</a>
+   <a class="btn ghost" href="glossary/웹용어집.html">용어집 · 퀴즈</a>
+   <a class="btn ghost" href="https://github.com/khaniyapark-ops/AI-Study">GitHub 저장소</a>
+  </div>
+ </div>
+</header>
+
+<main class="wrap">
+ <section>
+  <h2>브라우저에서 바로 실행</h2>
+  <p class="sub">설치 없이 열립니다. API 키 없이도 오프라인 재생으로 모든 데모가 동작합니다.</p>
+  <div class="grid">
+   <div class="card feature">
+    <h3>실데모 8종 · 에이전트 실습실</h3>
+    <p class="meta">기본 과정 · 전 직무</p>
+    <p>같은 목표를 챗봇과 에이전트에게 맡겨 비교합니다. 도구를 끄고, 승인을 거부하고, 자동 실행을 켜 보세요. 탭 1~7은 티켓 분류 · 로그 분석 · 코드 수정 · 보고서 · N/W · H/W · 변경요청서.</p>
+    <ul class="links"><li><a href="demo/index.html"><span class="k run">실행</span><span class="t">demo/index.html</span></a></li></ul>
+   </div>
+   <div class="card">
+    <h3>웹 용어집 35개</h3>
+    <p class="meta">전 직무 · 사전 학습</p>
+    <p>검색, 장 · 직무 필터, ★ 필수 7개만 보기, 카드 상세, 4지선다 퀴즈, 인쇄용 표.</p>
+    <ul class="links"><li><a href="glossary/웹용어집.html"><span class="k run">실행</span><span class="t">웹 용어집</span></a></li></ul>
+   </div>
+  </div>
+ </section>
+
+ <section>
+  <h2>과정과 자료</h2>
+  <p class="sub"><span class="k run">실행</span> 브라우저에서 열기 · <span class="k dl">받기</span> 파일 내려받기 · <span class="k read">읽기</span> GitHub에서 읽기</p>
+  <div class="grid">
+   <div class="card">
+    <h3>기본 과정</h3><p class="meta">6시간 · 전 직무</p>
+    <p>경험 → 이름 붙이기 → 해보기 → 설계 → 회상. 언플러그드 게임, 데모 실험, Claude Code 실습, 설계 캔버스.</p>
+    <ul class="links">
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/커리큘럼.md"><span class="k read">읽기</span><span class="t">커리큘럼</span></a></li>
+     <li><a href="AI교육_유지관리.pptx"><span class="k dl">받기</span><span class="t">슬라이드 34장 (pptx)</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/실습키트_Agentic.md"><span class="k read">읽기</span><span class="t">실습 키트 (게임 카드 · 기록지 · 캔버스 · 퀴즈)</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/tree/main/sample-system"><span class="k read">읽기</span><span class="t">실습 샘플 시스템</span></a></li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>심화 과정</h3><p class="meta">2일 · 트랙 D / O / M</p>
+    <p>하니스 · 도구 설계 · 가드레일 · 평가 · 거버넌스를 직접 설계하고, 혼합 조 캡스톤으로 파일럿을 제안합니다.</p>
+    <ul class="links">
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/advanced/심화_커리큘럼.md"><span class="k read">읽기</span><span class="t">커리큘럼</span></a></li>
+     <li><a href="advanced/심화교육_Agentic.pptx"><span class="k dl">받기</span><span class="t">슬라이드 40장 (pptx)</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/advanced/심화_실습가이드.md"><span class="k read">읽기</span><span class="t">트랙별 실습 가이드 · 캡스톤 루브릭</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/advanced/시나리오_교체가이드.md"><span class="k read">읽기</span><span class="t">실제 사업 데이터로 시나리오 바꾸기</span></a></li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>에이전트 실습 키트 (agent_lab)</h3><p class="meta">Python · 심화 기술 트랙</p>
+    <p>모델은 제안하고, 하니스가 결정한다. 승인 게이트 · 입력 검증 · 인젝션 탐지 · 감사 로그 · 평가기 · 마스킹 · 양식 기반 도구팩 생성기.</p>
+    <ul class="links">
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/advanced/agent_lab/README.md"><span class="k read">읽기</span><span class="t">실습 안내 (명령 · 과제 · 정답 예시)</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/tree/main/advanced/agent_lab"><span class="k read">읽기</span><span class="t">소스 코드</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/tree/main/advanced/agent_lab/evidence/2026-11-20-live"><span class="k read">읽기</span><span class="t">라이브 실측 감사 로그</span></a></li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>발전 과정</h3><p class="meta">60 / 90분 · 관리자 세션 가능</p>
+    <p>규칙 자동화에서 일하는 AI까지 여섯 단계. 같은 장애를 시대별로 비교하고 조직 성숙도를 자가진단합니다.</p>
+    <ul class="links">
+     <li><a href="evolution/에이전트로의_진화.pptx"><span class="k dl">받기</span><span class="t">슬라이드 20장 (pptx)</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/evolution/강의진행안.md"><span class="k read">읽기</span><span class="t">강의 진행안 · 활동 · 퀴즈</span></a></li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>핵심 용어집</h3><p class="meta">35개 · 필수 7개</p>
+    <p>같은 말을 같은 뜻으로. 보고서 · 제안서 · 계약서에 쓰는 사업 용어 표준안 포함.</p>
+    <ul class="links">
+     <li><a href="glossary/웹용어집.html"><span class="k run">실행</span><span class="t">웹 용어집 · 퀴즈</span></a></li>
+     <li><a href="glossary/용어카드집.pptx"><span class="k dl">받기</span><span class="t">용어 카드집 46장 (pptx)</span></a></li>
+     <li><a href="glossary/용어요약표_A4.pdf"><span class="k dl">받기</span><span class="t">A4 한 장 요약 (pdf)</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/glossary/사업용어_표준안.md"><span class="k read">읽기</span><span class="t">사업 용어 표준안</span></a></li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>보안 판단 · 환경 준비</h3><p class="meta">교육 전 · PM · 보안 담당 · 수강생</p>
+    <p>망분리 · 폐쇄망 · 규정 환경에서 적용 유형(A~E)을 정하고, 수강생 PC(Windows · macOS)를 미리 점검합니다.</p>
+    <ul class="links">
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/security/AI도입_보안판단가이드.md"><span class="k read">읽기</span><span class="t">AI 도입 보안 판단 가이드</span></a></li>
+     <li><a href="security/보안판단_슬라이드.pptx"><span class="k dl">받기</span><span class="t">보안 판단 슬라이드 9장 (pptx)</span></a></li>
+     <li><a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/setup/수강생_환경준비.md"><span class="k read">읽기</span><span class="t">수강생 환경 준비 (Windows · macOS)</span></a></li>
+     <li><a href="setup/check_env.py"><span class="k dl">받기</span><span class="t">사전 점검 스크립트 check_env.py</span></a></li>
+    </ul>
+   </div>
+  </div>
+ </section>
+
+ <section>
+  <h2>권장 진행 순서</h2>
+  <div class="steps">
+   <div class="step"><b>교육 3~4주 전</b>고객사 보안 지침 확인, 적용 유형 결정</div>
+   <div class="step"><b>교육 1주 전</b>환경 준비 배포 · 점검 회신 · 용어 사전 학습</div>
+   <div class="step"><b>기본 과정</b>6시간 · 4요소 체험</div>
+   <div class="step"><b>심화 과정</b>2일 · 직접 설계 · 캡스톤</div>
+   <div class="step"><b>수료 후</b>실제 사례로 시나리오 교체 · 파일럿 L1~L2</div>
+  </div>
+ </section>
+
+ <section>
+  <h2>검증 상태</h2>
+  <p class="sub">2026-11-20 기준. 확인한 것과 아직 확인하지 못한 것을 함께 밝힙니다.</p>
+  <div class="tablewrap"><table>
+   <tr><th>항목</th><th>상태</th></tr>
+   <tr><td>심화 실습 모의 평가</td><td><span class="ok">통과</span> 10/10</td></tr>
+   <tr><td>심화 실습 라이브 (실제 Claude Opus 5.5)</td><td><span class="ok">통과</span> 평가 9/9 · 압박 목표 재검증 2/2 · 케이스당 1회 실행</td></tr>
+   <tr><td>마스킹 규칙</td><td><span class="ok">통과</span> 테스트 8건 · 이름 · 주소처럼 형식 없는 정보는 자동으로 잡지 못함</td></tr>
+   <tr><td>Windows 호환</td><td><span class="warn">부분</span> 인코딩(cp949) 환경을 흉내 내 점검 · 실제 Windows PC 검증 전</td></tr>
+   <tr><td>실데모 라이브 모드</td><td><span class="warn">부분</span> API 연결까지 확인 · 실제 키로 미시험 (오프라인 재생은 확인)</td></tr>
+   <tr><td>시나리오</td><td><span class="warn">가상</span> 모든 데이터는 교육용 가상 데이터 · N/W · H/W 명령은 현업 검토 전</td></tr>
+  </table></div>
+ </section>
+
+ <section>
+  <h2>이용 안내</h2>
+  <div class="note"><ul>
+   <li>실습 데이터와 장애 사례는 모두 <b>교육용 가상 데이터</b>입니다. 실제 고객 데이터를 쓰려면 보안 판단 → 마스킹 → 사람 확인 → 승인을 거치세요.</li>
+   <li>효과 수치(절감률 등)는 넣지 않았습니다. 비용 예시는 2026-11-20 실측 감사 로그 기준이며, 모델 · 단가가 바뀌면 달라집니다.</li>
+   <li>실데모 라이브 모드의 API 키는 브라우저에서 api.anthropic.com으로만 전송되고 저장되지 않습니다. 교육용 임시 키를 쓰세요.</li>
+   <li>자료의 변경 이력과 알려진 한계는 <a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/CHANGELOG.md">CHANGELOG</a>, 관리 규칙은 <a href="https://github.com/khaniyapark-ops/AI-Study/blob/main/형상관리_규칙.md">형상관리 규칙</a>에 있습니다.</li>
+  </ul></div>
+ </section>
+</main>
+
+<footer><div class="wrap">유지관리 사업 Agentic AI 교육 자료 · v1.1.0 · 2026-11-20 · <a href="https://github.com/khaniyapark-ops/AI-Study">github.com/khaniyapark-ops/AI-Study</a></div></footer>
+</body>
+</html>
