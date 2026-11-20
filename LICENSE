@@ -1,0 +1,81 @@
+유지관리 사업 Agentic AI 교육 자료
+Copyright (c) 2026 khaniyapark-ops
+https://github.com/khaniyapark-ops/AI-Study
+
+이 저장소는 두 가지 라이선스를 함께 씁니다. 교육 콘텐츠와 프로그램 코드에 서로 다른 라이선스가 적용됩니다.
+This repository is dual-licensed: educational content and program code are under different licenses.
+
+
+1. 교육 콘텐츠 — CC BY-NC-SA 4.0
+   Educational content — Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+
+   적용 대상
+   - 모든 문서 (*.md), 슬라이드 (*.pptx), PDF (*.pdf)
+   - 용어 데이터 glossary/terms.json
+   - 실습 데이터 sample-system/tickets.csv, sample-system/app.log, advanced/agent_lab/samples/
+   - 도구팩 양식 advanced/agent_lab/specs/*.json, 평가 케이스 advanced/agent_lab/cases.json, cases.d/
+   - 실측 기록 advanced/agent_lab/evidence/
+   - demo/index.html, glossary/웹용어집.html 안의 교육 문안(시나리오, 설명, 모의 응답, 용어 데이터)
+   - 도구팩(advanced/agent_lab/packs/*.py) 안의 시나리오 문안과 모의 응답
+
+   조건 요약 (법적 효력은 아래 원문이 가집니다)
+   - 저작자 표시(BY): 출처와 라이선스를 밝히고, 변경했다면 변경 사실을 표시합니다
+   - 비영리(NC): 영리 목적으로 이용할 수 없습니다
+   - 동일조건변경허락(SA): 고친 자료를 배포할 때는 같은 라이선스로 배포합니다
+
+   원문 (Legal Code): https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+   요약 (Deed, 한국어): https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko
+
+   출처 표시 예:
+   「유지관리 사업 Agentic AI 교육 자료」 © 2026 khaniyapark-ops, CC BY-NC-SA 4.0,
+   https://github.com/khaniyapark-ops/AI-Study (변경한 경우: "원본을 변경함")
+
+
+2. 프로그램 코드 — MIT License
+
+   적용 대상
+   - Python 코드 (*.py): advanced/agent_lab/, setup/check_env.py, glossary/build_web.py, sample-system/*.py
+   - 생성 스크립트 (*.js): .slides_build.js, advanced/.slides_build_adv.js, evolution/.build_slides.js,
+     security/.build_slides.js, glossary/.build_cards.js
+   - glossary/web_template.html, index.html
+   - demo/index.html, glossary/웹용어집.html 안의 프로그램 코드(HTML 구조, CSS, JavaScript)
+   - 단, 위 코드 파일 안에 들어 있는 교육 문안은 1항(CC BY-NC-SA 4.0)을 따릅니다
+
+   MIT License
+
+   Copyright (c) 2026 khaniyapark-ops
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+
+
+3. 제3자 구성요소와 상표
+
+   - 실데모의 라이브 모드는 실행할 때 Anthropic TypeScript SDK(@anthropic-ai/sdk)를 CDN(jsdelivr)에서
+     불러옵니다. 이 저장소에는 포함되어 있지 않으며 해당 패키지의 라이선스를 따릅니다.
+   - 슬라이드 재생성에 쓰는 pptxgenjs, 실습에 쓰는 anthropic(Python SDK)·pytest도 이 저장소에 포함되지
+     않으며 각 패키지의 라이선스를 따릅니다.
+   - Claude, Anthropic, Claude Code는 Anthropic의 상표입니다. GitHub, Amazon Bedrock, Google Cloud
+     Vertex AI, Microsoft Foundry 등 언급된 제품명은 각 소유자의 상표입니다. 이 자료는 해당 회사의
+     공식 자료가 아니며, 회사들의 보증을 받지 않았습니다.
+   - advanced/agent_lab/evidence/의 실측 기록에는 AI 모델이 생성한 출력이 포함되어 있습니다.
+
+4. 면책
+
+   이 자료는 교육 목적이며 있는 그대로 제공됩니다. 보안·법률 관련 내용은 자문이 아니며, 실제 사업
+   적용 시에는 고객사 보안 지침과 법무 검토를 따르십시오.

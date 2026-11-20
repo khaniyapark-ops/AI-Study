@@ -94,6 +94,17 @@ SI·IT 유지관리 사업의 7개 직무(관리자 · 기획자 · 운영자 ·
 - 단가·실측 비용: `advanced/심화_실습가이드.md`(M-4), `advanced/agent_lab/README.md`, 심화 슬라이드 스크립트(비용 슬라이드), `glossary/사업용어_표준안.md`(예문)
 - 바꾼 뒤에는 `python3 advanced/agent_lab/eval.py --live`로 다시 평가하세요. 모델이 바뀌면 행동도 바뀝니다.
 
+## 라이선스
+
+| 대상 | 라이선스 | 요약 |
+|---|---|---|
+| 교육 콘텐츠: 문서 · 슬라이드 · PDF · 용어 데이터 · 시나리오 · 실습 데이터 · 실측 기록 | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko) | 출처 표시 · 비영리 · 고친 자료는 같은 조건으로 공개 |
+| 프로그램 코드: Python · 생성 스크립트 · HTML/CSS/JS | MIT | 저작권 표시를 유지하면 자유롭게 사용 |
+
+데모·웹 용어집처럼 코드와 교육 문안이 함께 있는 파일은 코드는 MIT, 문안은 CC BY-NC-SA 4.0입니다. 적용 범위와 전문은 [LICENSE](LICENSE)에 있습니다.
+
+출처 표시 예: 「유지관리 사업 Agentic AI 교육 자료」 © 2026 khaniyapark-ops, CC BY-NC-SA 4.0, https://github.com/khaniyapark-ops/AI-Study
+
 ## 주의
 
 - **API 키**는 터미널이나 브라우저 입력란에만 넣고, 파일에 저장하지 마세요. 교육용 임시 키를 쓰고 교육 후 폐기하세요.

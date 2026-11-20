@@ -5,7 +5,7 @@ const THEME={name:"Maintenance AI Advanced",headFontFace:"Arial",bodyFontFace:"A
 const pres=new pptxgen();pres.layout="LAYOUT_WIDE";pres.theme={headFontFace:"Arial",bodyFontFace:"Arial"};
 pres.title="Agentic AI 핵심 용어집 카드";
 const C=pres.SchemeColor;
-pres.defineSlideMaster({title:"TITLE_DARK",background:{color:C.text2},objects:[],slideNumber:undefined});
+pres.defineSlideMaster({title:"TITLE_DARK",background:{color:C.text2},objects:[{text:{text:"© 2026 khaniyapark-ops · CC BY-NC-SA 4.0 · github.com/khaniyapark-ops/AI-Study",options:{x:0.8,y:6.95,w:11.7,h:0.3,fontSize:10,color:"B9C4D4",margin:0}}}],slideNumber:undefined});
 pres.defineSlideMaster({title:"CONTENT",background:{color:C.background1},
  objects:[],
  slideNumber:{x:12.3,y:7.0,w:0.6,h:0.3,fontSize:10,color:C.text1,align:"right"}});
@@ -125,6 +125,7 @@ s.addText("답은 각 카드의 '한 줄 정의'와 '흔한 오해' 칸에 있�
  const C2=p2.SchemeColor;const sl=p2.addSlide();sl.background={color:"FFFFFF"};
  sl.addText(D.title+" — 한 장 요약",{x:0.4,y:0.25,w:7.5,h:0.45,fontSize:18,bold:true,color:"14213D",margin:0,isTextBox:true});
  sl.addText("에이전트 = 목표 + 도구 + 루프 + 승인  ·  읽기는 맡기고, 쓰기는 승인한다  ·  모델은 제안하고, 하니스가 결정한다",{x:0.4,y:0.72,w:10.9,h:0.3,fontSize:10,bold:true,color:"2A6F97",margin:0,isTextBox:true});
+ sl.addText("© 2026 khaniyapark-ops · 교육 콘텐츠 CC BY-NC-SA 4.0 · github.com/khaniyapark-ops/AI-Study",{x:0.4,y:7.85,w:10.9,h:0.25,fontSize:8,color:"7A8B99",margin:0,isTextBox:true});
  sl.addText(`★ 전 직무 필수 · ${D.version}`,{x:8.0,y:0.3,w:3.3,h:0.35,fontSize:9,color:"7A8B99",align:"right",margin:0,isTextBox:true});
  const HEX={1:"7A8B99",2:"2A6F97",3:"5B8DEF",4:"14213D",5:"D9534F",6:"2E9E6B"};
  const rows=[];D.chapters.forEach(c=>{rows.push({h:c});T.filter(t=>t.ch===c.no).forEach(t=>rows.push({t}));});

@@ -5,7 +5,7 @@ const THEME={name:"Maintenance AI Advanced",headFontFace:"Arial",bodyFontFace:"A
 const pres=new pptxgen();pres.layout="LAYOUT_WIDE";pres.theme={headFontFace:"Arial",bodyFontFace:"Arial"};
 pres.title="유지관리 사업 Agentic AI 심화 과정";
 const C=pres.SchemeColor;
-pres.defineSlideMaster({title:"TITLE_DARK",background:{color:C.text2},objects:[],slideNumber:undefined});
+pres.defineSlideMaster({title:"TITLE_DARK",background:{color:C.text2},objects:[{text:{text:"© 2026 khaniyapark-ops · CC BY-NC-SA 4.0 · github.com/khaniyapark-ops/AI-Study",options:{x:0.8,y:6.95,w:11.7,h:0.3,fontSize:10,color:"B9C4D4",margin:0}}}],slideNumber:undefined});
 pres.defineSlideMaster({title:"CONTENT",background:{color:C.background1},
  objects:[],
  slideNumber:{x:12.3,y:7.0,w:0.6,h:0.3,fontSize:10,color:C.text1,align:"right"}});
