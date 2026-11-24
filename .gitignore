@@ -24,3 +24,9 @@ advanced/agent_lab/runs/
 .env
 .env.*
 *.key
+
+# 비공개 교육 자료 — 공개 저장소에 올리지 않는다
+교육_통화분석_RFP/
+
+# Office 잠금 파일 (문서를 열어 둔 동안 생기는 임시 파일)
+~$*
