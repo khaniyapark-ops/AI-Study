@@ -16,6 +16,7 @@ SI·IT 유지관리 사업의 7개 직무(관리자 · 기획자 · 운영자 ·
 | [커리큘럼.md](커리큘럼.md) | 기본 과정 6시간 시간표, 직무별 목표, 강사 메모 | 강사 · PM |
 | [AI교육_유지관리.pdf](AI교육_유지관리.pdf) · [.pptx](AI교육_유지관리.pptx) | 기본 과정 슬라이드 34장 (PDF로 보기 · pptx는 발표자 노트 포함 편집용) | 강사 |
 | [실습키트_Agentic.md](실습키트_Agentic.md) | 컴퓨터 없이 하는 게임 카드, 데모 실험 스크립트, Claude Code 관찰 기록지, 설계 캔버스, 회상 퀴즈 | 강사 · 수강생 |
+| [game/사람에이전트_게임카드.pdf](game/사람에이전트_게임카드.pdf) · [.pptx](game/사람에이전트_게임카드.pptx) | "사람 에이전트" 게임 **인쇄용 A4 카드** 10쪽: 진행 안내, 역할 · 요청서 · 기록지, 정산 · N/W · H/W 시나리오 | 강사 |
 | [demo/index.html](demo/index.html) | 실데모 8종. 탭 8은 실제로 도는 **에이전트 실습실**. 브라우저로 열면 됨 (오프라인 재생 가능) | 전원 |
 | [sample-system/](sample-system/README.md) | 실습용 가상 정산 시스템 (티켓 · 장애 로그 · 버그 코드, 테스트 1건 실패가 시작 상태) | 전원 |
 | [advanced/](advanced/심화_커리큘럼.md) | **심화 과정 2일**: 커리큘럼, 슬라이드 40장, 트랙별 실습 가이드, 시나리오 교체 가이드 | 강사 · 수강생 |
@@ -84,6 +85,7 @@ SI·IT 유지관리 사업의 7개 직무(관리자 · 기획자 · 운영자 ·
 | 슬라이드 PDF | 각 `.pptx` | LibreOffice: `soffice --headless --convert-to pdf <파일>.pptx`, 또는 PowerPoint에서 "PDF로 내보내기". **pptx를 다시 만들면 PDF도 다시 변환** |
 | 슬라이드 4종 | `.slides_build.js`, `advanced/.slides_build_adv.js`, `evolution/.build_slides.js`, `security/.build_slides.js` (숨김 파일) | `npm install pptxgenjs` 후 `node <스크립트>` → 실행한 폴더에 .pptx 생성 |
 | 용어 카드집 · 요약표 | `glossary/terms.json` | `node glossary/.build_cards.js` |
+| 게임 카드 | `game/.build_cards.js` (문안 원본: `실습키트_Agentic.md` 2장) | `node game/.build_cards.js` → `game/`에 .pptx 생성 후 PDF 변환 |
 | 웹 용어집 | `glossary/terms.json` | `python3 glossary/build_web.py` |
 | 양식 기반 도구팩 | `advanced/agent_lab/specs/*.json` | `python3 advanced/agent_lab/new_pack.py specs/<파일>.json` |
 
