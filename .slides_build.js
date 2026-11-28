@@ -43,18 +43,18 @@ s=content("먼저 보겠습니다: 같은 목표, 전혀 다른 결과","도입"
 s.addText("목표: \"T-1005 정산 배치가 02:10에 멈췄습니다. 원인을 찾고 안전하게 복구해 주세요.\"",{x:0.6,y:1.35,w:12.1,h:0.5,fontSize:17,bold:true,color:C.text2,margin:0,isTextBox:true});
 s.addShape(pres.ShapeType.roundRect,{x:0.6,y:2.05,w:5.4,h:4.1,fill:{color:C.background2},line:{color:C.background2},rectRadius:0.12});
 s.addText("A. 챗봇",{x:0.9,y:2.25,w:4.8,h:0.5,fontSize:22,bold:true,color:C.accent5,margin:0,isTextBox:true});
-s.addText([{text:"\"원인은 여러 가지가 있을 수 있습니다. DB 커넥션 부족, 메모리 부족, 데이터 이상…",options:{breakLine:true}},{text:" ",options:{breakLine:true}},{text:"로그를 보여주시면 더 정확히 분석해 드릴게요. 우선 재기동해 보세요.\"",options:{}}],{x:0.9,y:2.9,w:4.8,h:2.2,fontSize:16,italic:true,color:C.text1,valign:"top",margin:0,isTextBox:true});
+s.addText([{text:"\"원인은 여러 가지가 있을 수 있습니다. DB 연결 부족, 메모리 부족, 데이터 이상…",options:{breakLine:true}},{text:" ",options:{breakLine:true}},{text:"로그를 보여주시면 더 정확히 분석해 드릴게요. 우선 재기동해 보세요.\"",options:{}}],{x:0.9,y:2.9,w:4.8,h:2.2,fontSize:16,italic:true,color:C.text1,valign:"top",margin:0,isTextBox:true});
 s.addText("근거 0개 · 일반론 · 위험한 조언(무작정 재기동)",{x:0.9,y:5.4,w:4.8,h:0.5,fontSize:14,bold:true,color:C.accent3,margin:0,isTextBox:true});
 s.addShape(pres.ShapeType.roundRect,{x:6.3,y:2.05,w:6.4,h:4.1,fill:{color:C.accent1},line:{color:C.accent1},rectRadius:0.12});
 s.addText("B. 에이전트",{x:6.6,y:2.25,w:5.8,h:0.5,fontSize:22,bold:true,color:C.accent2,margin:0,isTextBox:true});
-s.addText(B(["로그 읽기 → 02:10 커넥션 풀 고갈 발견","DB 조회 → 리포트 쿼리 42분째 점유","설정 읽기 → 두 잡이 02:00·같은 풀","테스트 실행 → 정산 코드는 정상","🛑 잡 중지·재기동은 사람 승인 후 실행"]),{x:6.6,y:2.85,w:5.8,h:2.6,fontSize:16,color:C.background1,valign:"top",paraSpaceAfter:6,margin:0,isTextBox:true});
+s.addText(B(["로그 읽기 → 02:10 연결 풀 고갈 발견","DB 조회 → 보고서 쿼리 42분째 점유","설정 읽기 → 두 작업이 02:00·같은 풀","테스트 실행 → 정산 코드는 정상","🛑 작업 중지·재기동은 사람 승인 후 실행"]),{x:6.6,y:2.85,w:5.8,h:2.6,fontSize:16,color:C.background1,valign:"top",paraSpaceAfter:6,margin:0,isTextBox:true});
 s.addText("근거 4개 · 원인 특정 · 위험 단계에서 멈춤",{x:6.6,y:5.4,w:5.8,h:0.5,fontSize:14,bold:true,color:C.background1,margin:0,isTextBox:true});
 s.addText("차이를 만든 것은 무엇일까요? — 오늘 하루 동안 이 질문에 답합니다",{x:0.6,y:6.4,w:12.1,h:0.5,fontSize:18,bold:true,color:C.accent1,margin:0,isTextBox:true});
 s.addNotes("설명 전에 데모 탭 8에서 A(챗봇) → B(에이전트)를 실제로 실행합니다. 이 슬라이드는 실행 후 정리용. 승인 카드가 뜨면 참석자 투표로 승인/거부를 정하세요. 정답(목표·도구·루프·승인)은 아직 말하지 않습니다.");
 
 
 s=content("누구를 위한 과정인가: 7개 직무, 하나의 유지보수 흐름","도입");
-const roles=[["관리자","SLA·리스크·성과 판단"],["기획자","요구 정리·변경요청·영향도"],["운영자","모니터링·장애 1차 대응"],["개발자","코드 이해·수정·테스트"],["S/W 엔지니어","미들웨어·DB·배치 운영"],["N/W 엔지니어","장비 로그·경로 장애"],["H/W 엔지니어","서버·스토리지 점검"]];
+const roles=[["관리자","SLA·위험·성과 판단"],["기획자","요구 정리·변경요청·영향도"],["운영자","모니터링·장애 1차 대응"],["개발자","코드 이해·수정·테스트"],["S/W 엔지니어","미들웨어·DB·배치 운영"],["N/W 엔지니어","장비 로그·경로 장애"],["H/W 엔지니어","서버·스토리지 점검"]];
 roles.forEach((r,i)=>{const col=i%4,row=Math.floor(i/4);const x=0.6+col*3.07,y=1.55+row*2.35;
  s.addShape(pres.ShapeType.roundRect,{x,y,w:2.9,h:2.1,fill:{color:C.background2},line:{color:C.background2},rectRadius:0.12});
  s.addShape(pres.ShapeType.ellipse,{x:x+0.25,y:y+0.25,w:0.6,h:0.6,fill:{color:C.accent1},line:{color:C.accent1}});
@@ -65,7 +65,7 @@ s.addShape(pres.ShapeType.roundRect,{x:9.8,y:3.9,w:2.9,h:2.1,fill:{color:C.text2
 s.addText("목표\n내 직무의 업무 1가지에 AI를 안전하게 적용하고 검증한다",{x:10.05,y:4.05,w:2.4,h:1.8,fontSize:15,bold:true,color:C.background1,valign:"middle",margin:0,isTextBox:true});
 
 s=content("종일 시간표 (약 6시간)","도입");
-const tt=[["09:30","오프닝 체험: 같은 목표, 다른 결과 (데모 8 A/B)","20분"],["09:50","① 왜 Agentic AI인가: 4요소에 이름 붙이기","40분"],["10:30","② 언플러그드 게임 \"사람 에이전트\"","30분"],["11:00","③ 원칙: 프롬프트 5요소·보안·환각 검증","30분"],["11:30","점심","60분"],["12:30","④ 공통 데모 1~4 + 직무별 데모 5~7","40분"],["13:10","⑤ 데모 8 실험 5가지 (거부·도구 끄기·자동 실행)","20분"],["13:30","⑥ 실전: Claude Code로 버그 수정 + 직무별 미션","50분"],["14:20","휴식","10분"],["14:30","⑦ 에이전트 설계 캔버스 + 조별 발표","40분"],["15:10","⑧ 회상 퀴즈·로드맵·Q&A","20분"]];
+const tt=[["09:30","오프닝 체험: 같은 목표, 다른 결과 (데모 8 A/B)","20분"],["09:50","① 왜 Agentic AI인가: 4요소에 이름 붙이기","40분"],["10:30","② 컴퓨터 없이 하는 게임 \"사람 에이전트\"","30분"],["11:00","③ 원칙: 프롬프트 5요소·보안·환각 검증","30분"],["11:30","점심","60분"],["12:30","④ 공통 데모 1~4 + 직무별 데모 5~7","40분"],["13:10","⑤ 데모 8 실험 5가지 (거부·도구 끄기·자동 실행)","20분"],["13:30","⑥ 실전: Claude Code로 버그 수정 + 직무별 미션","50분"],["14:20","휴식","10분"],["14:30","⑦ 에이전트 설계 캔버스 + 조별 발표","40분"],["15:10","⑧ 회상 퀴즈·로드맵·Q&A","20분"]];
 tt.forEach((r,i)=>{const y=1.4+i*0.5;const brk=r[1]==="점심"||r[1]==="휴식";
  s.addShape(pres.ShapeType.roundRect,{x:0.6,y,w:12.1,h:0.43,fill:{color:brk?C.background1:C.background2},line:{color:C.background2},rectRadius:0.08});
  s.addText(r[0],{x:0.8,y,w:1.1,h:0.43,fontSize:15,bold:true,color:C.accent1,valign:"middle",margin:0,isTextBox:true});
@@ -76,7 +76,7 @@ s.addText("흐름: 경험 → 이름 붙이기 → 직접 해보기 → 내 업�
 // ---------- 개념
 sec("개념: 왜 Agentic AI인가");
 s=content("유지보수 업무 흐름에서 AI가 들어갈 자리","개념: 왜 Agentic AI인가");
-const flow=[["접수","분류·우선순위\n답변 초안"],["분석","로그 해석\n원인 가설"],["수정","코드 이해\n수정·테스트"],["배포","영향도 점검\n릴리스 노트"],["보고","월간 보고\n개선 제안"]];
+const flow=[["접수","분류·우선순위\n답변 초안"],["분석","로그 해석\n원인 가설"],["수정","코드 이해\n수정·테스트"],["배포","영향도 점검\n배포 기록"],["보고","월간 보고\n개선 제안"]];
 flow.forEach((f,i)=>{const x=0.6+i*2.5;
  s.addShape(pres.ShapeType.roundRect,{x,y:1.6,w:2.2,h:1.0,fill:{color:C.accent1},line:{color:C.accent1},rectRadius:0.12});
  s.addText(f[0],{x,y:1.6,w:2.2,h:1.0,fontSize:22,bold:true,color:C.background1,align:"center",valign:"middle",margin:0,isTextBox:true});
@@ -126,7 +126,7 @@ band(s,8.3,1.5,4.4,4.2,"하지만 이럴 땐 신중히","• 운영 데이터 �
 s.addText("유지보수의 특성이 곧 에이전트 적합성 조건입니다.",{x:0.6,y:6.1,w:12.1,h:0.5,fontSize:18,bold:true,color:C.accent1,margin:0,isTextBox:true});
 
 s=content("에이전트의 작동 방식: 계획 → 도구 → 관찰 → 검증","개념: 왜 Agentic AI인가");
-const loop=[["목표","티켓·알람을\n목표로 수신"],["계획","조사 단계\n분해"],["도구 사용","로그·DB·\n소스 조회"],["관찰·재계획","결과를 읽고\n가설 수정"],["검증","테스트·\n조회로 확인"],["보고","근거·권고·\n불확실성"]];
+const loop=[["목표","티켓·알림을\n목표로 수신"],["계획","조사 단계\n분해"],["도구 사용","로그·DB·\n소스 조회"],["관찰·재계획","결과를 읽고\n가설 수정"],["검증","테스트·\n조회로 확인"],["보고","근거·권고·\n불확실성"]];
 loop.forEach((l,i)=>{const x=0.6+i*2.05;
  s.addShape(pres.ShapeType.roundRect,{x,y:1.8,w:1.85,h:1.9,fill:{color:i===5?C.accent2:C.accent1},line:{color:C.accent1},rectRadius:0.12});
  s.addText(l[0],{x,y:1.95,w:1.85,h:0.5,fontSize:17,bold:true,color:i===5?C.text1:C.background1,align:"center",margin:0,isTextBox:true});
@@ -142,14 +142,14 @@ lv.forEach((l,i)=>{const x=0.6+i*3.07;const h=2.2+i*0.65;
 s.addText("오늘의 목표: L1~L2 체득 → L3 시나리오 설계",{x:0.6,y:1.45,w:12.1,h:0.5,fontSize:18,bold:true,color:C.accent1,margin:0,isTextBox:true});
 
 sec("체험");
-s=content("언플러그드 게임: \"사람 에이전트\" (30분)","체험");
+s=content("컴퓨터 없이 하는 게임: \"사람 에이전트\" (30분)","체험");
 const rl=[["에이전트","목표 카드와 받은 결과 카드만 볼 수 있다"],["도구 담당","요청받은 도구 결과 카드를 건넨다"],["승인자","운영 변경 요청서에 승인/거부"],["기록자","매 반복의 생각·도구·관찰을 칠판에"]];
 s.addText("역할 (4~5명 1조)",{x:0.6,y:1.4,w:5.6,h:0.45,fontSize:18,bold:true,color:C.text2,margin:0,isTextBox:true});
 rl.forEach((r,i)=>{const y=1.95+i*1.05;
  s.addShape(pres.ShapeType.roundRect,{x:0.6,y,w:5.6,h:0.9,fill:{color:C.background2},line:{color:C.background2},rectRadius:0.1});
  s.addText(r[0],{x:0.85,y,w:1.6,h:0.9,fontSize:17,bold:true,color:C.accent1,valign:"middle",margin:0,isTextBox:true});
  s.addText(r[1],{x:2.5,y,w:3.55,h:0.9,fontSize:14,color:C.text1,valign:"middle",margin:0,isTextBox:true});});
-const rd=[["라운드 1 · 3분","챗봇 규칙: 목표만 보고 바로 답한다"],["라운드 2 · 10분","에이전트 규칙: 도구를 하나씩 요청하며 반복, 변경은 승인 요청"],["라운드 3 · 7분","DB 카드 회수 + 첫 승인 요청은 거부"]];
+const rd=[["1회차 · 3분","챗봇 규칙: 목표만 보고 바로 답한다"],["2회차 · 10분","에이전트 규칙: 도구를 하나씩 요청하며 반복, 변경은 승인 요청"],["3회차 · 7분","DB 카드 회수 + 첫 승인 요청은 거부"]];
 rd.forEach((r,i)=>{const y=1.4+i*1.5;
  s.addShape(pres.ShapeType.roundRect,{x:6.6,y,w:6.1,h:1.3,fill:{color:i===1?C.accent1:C.text2},line:{color:i===1?C.accent1:C.text2},rectRadius:0.12});
  s.addText(r[0],{x:6.9,y:y+0.12,w:5.5,h:0.45,fontSize:16,bold:true,color:C.accent2,margin:0,isTextBox:true});
@@ -199,10 +199,10 @@ demo(4,"월간 보고서 자동 초안","한 달 42건 티켓을 고객사 제�
 sec("직무별 트랙");
 s=content("직무별 AI·에이전트 활용 지도","직무별 트랙");
 const rows=[["직무","대표 활용","에이전트가 맡는 일","사람이 쥐는 일"],
-["관리자","KPI·리스크 요약, 보고","실적 집계→요약 초안","우선순위·투자 판단"],
+["관리자","KPI·위험 요약, 보고","실적 집계→요약 초안","우선순위·투자 판단"],
 ["기획자","요구 정리, 변경요청서","영향도·질문 목록 작성","정책·범위 결정"],
-["운영자","알람 분류, 1차 진단","로그·메트릭 조회, 복구안","운영 변경 승인"],
-["개발자","코드 이해·수정·테스트","수정안·테스트 작성/실행","리뷰·머지·배포"],
+["운영자","알림 분류, 1차 진단","로그·지표 조회, 복구안","운영 변경 승인"],
+["개발자","코드 이해·수정·테스트","수정안·테스트 작성/실행","검토·머지·배포"],
 ["S/W 엔지니어","배치·DB·미들웨어 장애","세션·쿼리·설정 조회","설정 변경·재기동"],
 ["N/W 엔지니어","장비 로그, 경로 장애","show 명령 분석·가설","설정 변경(CAB)"],
 ["H/W 엔지니어","SEL·SMART 해석","점검표·보고 초안","부품 교체·현장 작업"]];
@@ -219,18 +219,18 @@ function role(title,items){ // items: [{who, tasks[], prompt}]
   s.addText([{text:"프롬프트 예시",options:{bold:true,color:C.accent2,fontSize:14,breakLine:true}},{text:it.prompt,options:{color:C.background1,fontSize:16}}],{x:x+0.4,y:4.3,w:w-0.8,h:2.05,valign:"top",margin:0,isTextBox:true});});
  return s}
 role("관리자·기획자: 판단 근거와 문서를 빠르게",[
- {who:"관리자",tasks:["월간 실적·SLA 위반 사유 요약","반복 장애의 비용·리스크 정리","개선 과제 우선순위 근거 작성"],prompt:"아래 11월 지표로 임원 보고용 3줄 요약과 리스크 2가지, 다음 달 개선안 2가지를 작성. 없는 수치는 만들지 말 것."},
+ {who:"관리자",tasks:["월간 실적·SLA 위반 사유 요약","반복 장애의 비용·위험 정리","개선 과제 우선순위 근거 작성"],prompt:"아래 11월 지표로 임원 보고용 3줄 요약과 위험 2가지, 다음 달 개선안 2가지를 작성. 없는 수치는 만들지 말 것."},
  {who:"기획자",tasks:["모호한 요구를 변경요청서로 구조화","확인 질문 목록·누락 요구 탐지","영향 범위·일정 옵션 비교"],prompt:"고객 메일을 변경요청서로 정리하고 확인 질문 5개, 영향 범위, 일정 옵션 2가지를 표로 작성. 공수는 범위로 '추정' 표시."}]);
 role("개발자·S/W 엔지니어: 코드와 운영 소프트웨어",[
  {who:"개발자",tasks:["레거시 코드 설명·인수인계 문서","버그 원인과 최소 수정 diff","경계값 테스트·영향도 정리"],prompt:"아래 함수와 기대 동작으로: 3줄 요약 → 버그 원인 → 최소 diff → 테스트 4개 → 호출부 영향 확인점 순으로 답해줘."},
- {who:"S/W 엔지니어",tasks:["배치·DB 장애 로그 분석","세션·락·슬로우쿼리 확인 SQL","재기동·재처리 절차 초안"],prompt:"아래 배치 로그에서 원인 가설 3개와 확인 SQL, 즉시/재발방지 조치를 구분. 운영 변경은 '승인 필요' 표시."}]);
+ {who:"S/W 엔지니어",tasks:["배치·DB 장애 로그 분석","세션·락·느린 쿼리 확인 SQL","재기동·재처리 절차 초안"],prompt:"아래 배치 로그에서 원인 가설 3개와 확인 SQL, 즉시/재발방지 조치를 구분. 운영 변경은 '승인 필요' 표시."}]);
 role("운영자·N/W·H/W 엔지니어: 현장 장애 대응",[
- {who:"운영자 · N/W",tasks:["알람 분류·1차 진단 (운영자)","스위치·라우터 로그 해석 (N/W)","show 명령 중심의 확인 순서 제시"],prompt:"스위치 로그에서 타임라인과 가설 3개, 조회 전용 명령, 임시/영구 조치 구분. 설정 변경 명령은 '검토 필요'."},
+ {who:"운영자 · N/W",tasks:["알림 분류·1차 진단 (운영자)","스위치·라우터 로그 해석 (N/W)","show 명령 중심의 확인 순서 제시"],prompt:"스위치 로그에서 타임라인과 가설 3개, 조회 전용 명령, 임시/영구 조치 구분. 설정 변경 명령은 '검토 필요'."},
  {who:"H/W 엔지니어",tasks:["SEL·SMART·RAID 로그 해석","점검 체크리스트·교체 판단 근거","고객 보고 3줄 요약"],prompt:"서버 로그의 위험도(상/중/하), 즉시 조치, 현장 점검 5개, 교체/관찰 판단을 작성. 위험 작업은 '백업 확인 후'로."}]);
 s=content("직무별 데모 연결: 데모 탭 5~7","직무별 트랙");
 card(s,0.6,1.5,3.9,3.9,"탭 5. N/W 장비 로그",B(["링크 플래핑·BGP 단절","조회 전용 명령 제시","DB 지연과 연관 추론"]),{badge:"5",fs:19});
 card(s,4.7,1.5,3.9,3.9,"탭 6. H/W 장애 점검",B(["RAID Degraded·SMART","데이터 보호 우선 판단","고객 보고 3줄"]),{badge:"6",fs:19});
-card(s,8.8,1.5,3.9,3.9,"탭 7. 변경요청서",B(["요구→CR 초안","영향도·리스크·일정 옵션","의사결정 요청 정리"]),{badge:"7",fs:19});
+card(s,8.8,1.5,3.9,3.9,"탭 7. 변경요청서",B(["요구→CR 초안","영향도·위험·일정 옵션","의사결정 요청 정리"]),{badge:"7",fs:19});
 s.addText("각자 직무에 맞는 탭을 열고, 프롬프트를 내 업무에 맞게 바꿔 다시 실행해 보세요.",{x:0.6,y:5.8,w:12.1,h:0.6,fontSize:18,bold:true,color:C.accent1,margin:0,isTextBox:true});
 
 // ---------- Agentic
@@ -242,7 +242,7 @@ s.addTable(ex.map((r,i)=>r.map((c,j)=>({text:c,options:i===0?xh:{fontSize:15,bol
 band(s,0.6,5.9,12.1,1.0,"실험 ④ 뒤에 꼭 물을 질문","우리 시스템에서 이 체크박스를 켜도 되는 작업은 무엇인가요?");
 s.addNotes("demo/index.html 탭 8. 키 없이도 오프라인 재생으로 ①②④⑤ 진행 가능, ③은 라이브 모드(API 키)에서 효과가 보입니다. 승인 게이트는 모델이 아니라 프로그램이 강제한다는 점을 강조.");
 s=content("가드레일 설계: 에이전트를 안전하게 쓰는 5가지","Agentic 실데모");
-const gr=[["최소 권한","읽기 전용 계정부터 시작"],["승인 게이트","쓰기·재기동·고객 발송은 사람 승인"],["감사 로그","모든 도구 호출과 근거 기록"],["롤백 계획","변경 전 원복 절차 확인"],["범위 제한","허용 도구·대상 시스템 명시"]];
+const gr=[["최소 권한","읽기 전용 계정부터 시작"],["승인 게이트","쓰기·재기동·고객 발송은 사람 승인"],["감사 로그","모든 도구 호출과 근거 기록"],["되돌리기 계획","변경 전 원복 절차 확인"],["범위 제한","허용 도구·대상 시스템 명시"]];
 gr.forEach((g,i)=>{const col=i%3,row=Math.floor(i/3);const x=0.6+col*4.12,y=1.5+row*2.65;
  card(s,x,y,3.95,2.45,g[0],g[1],{badge:String(i+1),bc:i===1?C.accent3:C.accent1,fs:17});});
 band(s,8.72,4.15,3.95,2.45,"도입 원칙","읽기 → 초안 → 승인 후 실행 순서로 권한을 넓힌다");
@@ -250,7 +250,7 @@ band(s,8.72,4.15,3.95,2.45,"도입 원칙","읽기 → 초안 → 승인 후 실
 // ---------- 실습
 sec("실습");
 s=content("실습 ①: Claude Code에 '목표'만 주고 지켜보기","실습");
-const st=[["준비","cd sample-system\npython3 -m pytest -q\n→ 1 failed 확인"],["목표 한 문장","파일·위치는 알려주지 않고 오른쪽 문장만 입력"],["관찰","짝이 기록: 도구 순서, 반복 횟수, 권한을 물은 순간"],["확인","pytest 3 passed\ndiff 최소화 리뷰\n정책은 사람이 결정"]];
+const st=[["준비","cd sample-system\npython3 -m pytest -q\n→ 1 failed 확인"],["목표 한 문장","파일·위치는 알려주지 않고 오른쪽 문장만 입력"],["관찰","짝이 기록: 도구 순서, 반복 횟수, 권한을 물은 순간"],["확인","pytest 3 passed\ndiff 최소화 검토\n정책은 사람이 결정"]];
 st.forEach((r,i)=>{const x=0.6+(i%2)*3.15,y=1.5+Math.floor(i/2)*2.35;
  s.addShape(pres.ShapeType.roundRect,{x,y,w:2.95,h:2.15,fill:{color:C.background2},line:{color:C.background2},rectRadius:0.12});
  s.addShape(pres.ShapeType.ellipse,{x:x+0.2,y:y+0.2,w:0.5,h:0.5,fill:{color:C.accent1},line:{color:C.accent1}});
@@ -287,7 +287,7 @@ const mk=[["처리시간","티켓당 분류·분석에 걸린 시간 전/후"],[
 mk.forEach((m,i)=>{const x=0.6+(i%2)*6.15,y=1.5+Math.floor(i/2)*2.5;card(s,x,y,5.95,2.2,m[0],m[1],{badge:String(i+1),fs:18});});
 s.addText("※ 절감 수치는 정해진 값이 아니라 파일럿에서 직접 측정해 확인합니다.",{x:0.6,y:6.6,w:12.1,h:0.4,fontSize:14,color:C.accent5,margin:0,isTextBox:true});
 s=content("도입 로드맵: 작게 시작해서 넓힙니다","정리");
-const rm=[["1개월","파일럿 (L1~L2)","티켓 분류·보고서·로그 요약\n마스킹 규칙·사용 가이드 확정"],["2개월","확산 (L2~L3)","직무별 프롬프트 템플릿 공유\n읽기 전용 에이전트 파일럿"],["3개월","정착","효과 지표 리뷰\n승인 게이트 기반 자동화 확대"]];
+const rm=[["1개월","파일럿 (L1~L2)","티켓 분류·보고서·로그 요약\n마스킹 규칙·사용 가이드 확정"],["2개월","확산 (L2~L3)","직무별 프롬프트 템플릿 공유\n읽기 전용 에이전트 파일럿"],["3개월","정착","효과 지표 검토\n승인 게이트 기반 자동화 확대"]];
 rm.forEach((r,i)=>{const x=0.6+i*4.15;
  s.addShape(pres.ShapeType.roundRect,{x,y:1.6,w:3.9,h:4.2,fill:{color:i===0?C.accent1:C.background2},line:{color:i===0?C.accent1:C.background2},rectRadius:0.12});
  s.addText(r[0],{x:x+0.3,y:1.85,w:3.3,h:0.6,fontSize:28,bold:true,color:i===0?C.accent2:C.accent1,margin:0,isTextBox:true});

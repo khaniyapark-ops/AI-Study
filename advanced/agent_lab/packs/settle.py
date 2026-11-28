@@ -31,7 +31,7 @@ TOOLS = [
     {"name": "read_file", "kind": "read", "description": "설정·소스 읽기", "input_schema": obj({"path": s()})},
     {"name": "query_db_readonly", "kind": "read", "description": "운영 DB 조회 (SELECT만)", "input_schema": obj({"sql": s()})},
     {"name": "run_tests", "kind": "read", "description": "정산 로직 테스트", "input_schema": obj()},
-    {"name": "run_ops_action", "kind": "write", "description": "운영 변경(잡 중지·배치 재기동·스케줄 변경). 사람 승인 필요",
+    {"name": "run_ops_action", "kind": "write", "description": "운영 변경(작업 중지·배치 재기동·스케줄 변경). 사람 승인 필요",
      "input_schema": obj({"action": s(enum=["pause_job", "restart_batch", "change_schedule"]), "target": s(),
                           "detail": s(), "reason": s()})},
 ]
@@ -73,8 +73,8 @@ def execute(ctx: dict, name: str, a: dict) -> str:
         return "정산 로직 테스트 12 passed, 0 failed"
     if name == "run_ops_action":
         if a["action"] == "restart_batch" and not ctx["paused_report"]:
-            # 도메인 가드레일: 원인(커넥션 점유)을 해소하기 전 재기동은 같은 장애를 반복한다
-            raise ToolError("사전 조건 미충족: 커넥션을 점유한 리포트 잡을 먼저 중지해야 재기동이 의미 있습니다.")
+            # 도메인 가드레일: 원인(연결 점유)을 해소하기 전 재기동은 같은 장애를 반복한다
+            raise ToolError("사전 조건 미충족: 연결을 점유한 보고서 작업을 먼저 중지해야 재기동이 의미 있습니다.")
         if a["action"] == "pause_job" and "report" in a["target"]:
             ctx["paused_report"] = True
         if a["action"] == "restart_batch":
@@ -96,9 +96,9 @@ def _say(text):
     return {"type": "text", "text": text}
 
 
-_FINAL = """**원인**: 11/04 신규 배포된 monthly-usage-report가 02:00에 타임아웃 없는 장기 쿼리로 공유 커넥션 풀(HikariPool-1)을 점유해 정산 배치가 커넥션을 얻지 못하고 중단되었습니다.
+_FINAL = """**원인**: 11/04 신규 배포된 monthly-usage-report가 02:00에 시간 초과 없는 장기 쿼리로 공유 연결 풀(HikariPool-1)을 점유해 정산 배치가 연결을 얻지 못하고 중단되었습니다.
 
-**근거**: `read_log`(02:10 풀 고갈 20/20, ReportJob이 conn#17 점유) · `query_db_readonly`(리포트 쿼리 42분째 실행) · `read_file`(두 잡 모두 02:00, 같은 풀, 리포트 타임아웃 없음) · `run_tests`(정산 로직 정상)
+**근거**: `read_log`(02:10 풀 고갈 20/20, ReportJob이 conn#17 점유) · `query_db_readonly`(보고서 쿼리 42분째 실행) · `read_file`(두 작업 모두 02:00, 같은 풀, 보고서 시간 초과 없음) · `run_tests`(정산 로직 정상)
 
 **조치 결과**: 승인된 운영 변경만 실행했습니다(감사 로그 approval 기록 참고).
 
@@ -109,8 +109,8 @@ _INVESTIGATE = [
     [_t("read_file", path="jobs/report_schedule.yaml"), _t("read_file", path="jobs/nightly_settle.yaml")],
     [_t("run_tests")],
     [_say("원인은 일정·풀 공유 충돌입니다. 복구에는 운영 변경이 필요해 승인을 요청합니다."),
-     _t("run_ops_action", action="pause_job", target="monthly-usage-report", detail="실행 중 리포트 잡 중지", reason="42분째 커넥션 점유")],
-    [_t("run_ops_action", action="restart_batch", target="NIGHTLY_SETTLE", detail="order_id 88231부터 재처리", reason="커넥션 확보 후 미처리분 처리"),
+     _t("run_ops_action", action="pause_job", target="monthly-usage-report", detail="실행 중 보고서 작업 중지", reason="42분째 연결 점유")],
+    [_t("run_ops_action", action="restart_batch", target="NIGHTLY_SETTLE", detail="order_id 88231부터 재처리", reason="연결 확보 후 미처리분 처리"),
      _t("run_ops_action", action="change_schedule", target="monthly-usage-report", detail="02:00 → 03:30, query_timeout 10분", reason="재발 방지")],
     [_say(_FINAL)],
 ]

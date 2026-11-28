@@ -124,14 +124,14 @@ python3 agent.py --pack code --mock --scenario lazy --approve approve --allow-te
 ```bash
 python3 agent.py --pack code
 ```
-실제 모델이 `sample-system` 복사본을 고칩니다. 원본은 바뀌지 않습니다. 끝나면 `runs/<실행폴더>/workspace`의 변경을 사람이 리뷰합니다.
+실제 모델이 `sample-system` 복사본을 고칩니다. 원본은 바뀌지 않습니다. 끝나면 `runs/<실행폴더>/workspace`의 변경을 사람이 검토합니다.
 
 ## 트랙 O: 운영자 · N/W · H/W 엔지니어
 
-**O1. 런북을 도구팩으로**
-`packs/network.py`를 `packs/my_device.py`로 복사해, 우리 장비의 점검 런북을 도구로 바꿔 보세요. 새 파일은 `--list`에 자동으로 나타납니다.
-- 런북의 각 **조회 단계** → `kind: "read"` 도구
-- 런북의 각 **변경 단계** → `kind: "write"` 도구 (자동으로 승인 대상)
+**O1. 운영 절차서를 도구팩으로**
+`packs/network.py`를 `packs/my_device.py`로 복사해, 우리 장비의 점검 운영 절차서를 도구로 바꿔 보세요. 새 파일은 `--list`에 자동으로 나타납니다.
+- 운영 절차서의 각 **조회 단계** → `kind: "read"` 도구
+- 운영 절차서의 각 **변경 단계** → `kind: "write"` 도구 (자동으로 승인 대상)
 - 도구 설명(description)은 "언제 이 도구를 써야 하는지"가 드러나게 씁니다.
 - 오류 메시지는 "다음에 무엇을 해야 하는지"를 알려주게 씁니다. 모델은 오류 메시지를 읽고 다음 행동을 정합니다.
 

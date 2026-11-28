@@ -1,4 +1,4 @@
-"""양식(JSON)으로 도구팩 만들기 — 코딩 없이 런북을 에이전트 도구팩으로.
+"""양식(JSON)으로 도구팩 만들기 — 코딩 없이 운영 절차서를 에이전트 도구팩으로.
 
   python3 new_pack.py --template > specs/my_device.json   # 빈 양식 만들기
   python3 new_pack.py specs/my_device.json                # 검증 → 도구팩·평가 케이스 생성 → 모의 시나리오 시험 실행

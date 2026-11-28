@@ -65,7 +65,7 @@ s.addText("에이전트 = 목표 + 도구 + 루프 + 승인 · 읽기는 맡기�
 
 // 직무별 필수 용어
 s=content("직무별로 꼭 알아야 할 용어","소개");
-const lv={M:"판단 기준으로 쓸 수 있는 수준",O:"런북을 도구로 바꿀 수 있는 수준",D:"코드로 구현할 수 있는 수준"};
+const lv={M:"판단 기준으로 쓸 수 있는 수준",O:"운영 절차서를 도구로 바꿀 수 있는 수준",D:"코드로 구현할 수 있는 수준"};
 ["M","O","D"].forEach((r,i)=>{const y=1.45+i*1.85;const list=T.filter(t=>t.roles.includes(r));
  s.addShape(pres.ShapeType.roundRect,{x:0.6,y,w:12.1,h:1.7,fill:{color:C.background2},line:{color:C.background2},rectRadius:0.1});
  s.addShape(pres.ShapeType.ellipse,{x:0.85,y:y+0.25,w:0.7,h:0.7,fill:{color:C.accent1},line:{color:C.accent1}});
